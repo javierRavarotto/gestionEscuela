@@ -1,0 +1,17 @@
+.cruz{
+	background-color: rgb(248, 116, 116);
+	width:33px;
+	cursor:pointer;
+	border-radius: 5px;
+	text-align: center;
+}
+.edit{
+	background-color: rgb(248, 213, 116);
+	width:33px;
+	cursor:pointer;
+	border-radius: 5px;
+	text-align: center;
+}
+table{
+	text-align: center;
+}

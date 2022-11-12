@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+    <link  rel="stylesheet" th:href="@{../css/vacunasLista.css}">
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+     <button><a href="./agregar">Agregar vacuna</a> </button>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Borrar</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr  th:each = "vacuna : ${vacunas}" >
+      <th th:value="${vacuna.idVacuna}" th:text="${vacuna.idVacuna}" scope="row"></th>
+      <td th:value="${vacuna.idVacuna}" th:text="${vacuna.nombre}"></td>
+      <td th:value="${vacuna.idVacuna}" th:text="${vacuna.fechaCreacion}"></td>
+      <td ><img class="edit" src="../editar.png"></td>
+      <td> <img  class="cruz" src="../cruz.png"></td>
+    </tr>
+  </tbody>
+</table>
+  
+</body>
+</html>
