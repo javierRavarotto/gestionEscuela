@@ -1,17 +1,27 @@
-.cruz{
-	background-color: rgb(248, 116, 116);
-	width:33px;
-	cursor:pointer;
-	border-radius: 5px;
-	text-align: center;
-}
-.edit{
-	background-color: rgb(248, 213, 116);
-	width:33px;
-	cursor:pointer;
-	border-radius: 5px;
-	text-align: center;
-}
+
 table{
 	text-align: center;
+}
+
+.buttonCruz{
+	width:33px;
+	height: 33px;
+	background-color: rgb(248, 116, 116);
+	border-radius:  7px;
+	background-image: url(../cruz.png);
+  	background-repeat:no-repeat;	
+    background-size: 33px;
+	cursor: pointer;
+	border:none;
+}
+.buttonEdit{
+	width:33px;
+	height: 33px;
+	background-color: rgb(248, 213, 116);
+	border-radius:  7px;
+	background-image: url(../editar.png);
+  	background-repeat:no-repeat;	
+    background-size: 33px;
+	cursor: pointer;
+	border:none;
 }

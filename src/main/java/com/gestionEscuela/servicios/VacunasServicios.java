@@ -15,7 +15,7 @@ import errorServicio.ErrorServicio;
 public class VacunasServicios {
 	
 	@Autowired
-	private VacunasRepositorio vacunasRepositori;
+	private VacunasRepositorio vacunasRepositorio;
 	
 	@Transactional
 	public void crearVacuna(String nombre) throws ErrorServicio {
@@ -24,9 +24,20 @@ public class VacunasServicios {
 			vacuna.setNombre(nombre);
 			vacuna.setAlta(true);
 			vacuna.setFechaCreacion(new Date());
-			vacunasRepositori.save(vacuna);
+			vacunasRepositorio.save(vacuna);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}	
+	@Transactional
+	public void altaBaja(Integer id)throws ErrorServicio {
+		Vacunas vacuna = vacunasRepositorio.findById(id).get();
+
+		if(vacuna.getAlta()==true) {
+			vacuna.setAlta(false);
+		}else {
+			vacuna.setAlta(true);
+		}
+		vacunasRepositorio.save(vacuna);	
+	}
 }

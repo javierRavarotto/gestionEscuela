@@ -52,12 +52,9 @@ public class vacunasControlador {
 	}
 	
 	@PostMapping("/crearVacuna")
-	public RedirectView crearVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre
-			) throws ErrorServicio {
+	public RedirectView crearVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre) 
+			throws ErrorServicio {
 		RedirectView rv = new RedirectView();
-		
-
-		
 		try {
 			vacunasServicio.crearVacuna(nombre);
 		} catch (ErrorServicio e) {
@@ -67,7 +64,17 @@ public class vacunasControlador {
 			return rv;
 		}
 		rv.setUrl("/");
+		
 		return rv;
+	}
+	
+	@PostMapping("/altaBaja")
+	public String darAltaBaja( @RequestParam Integer id) throws ErrorServicio {
+		
+		
+		vacunasServicio.altaBaja(id);
+		
+		return "redirect:/vacunas/lista";
 	}
 	
 }
