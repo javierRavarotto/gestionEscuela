@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
     <title>Document</title>
 </head>
+<header th:replace="nav/nav.html :: nav"> </header>
 <body>
-    editar vacunas
+ <h5>Editar vacunas</h5>
+
+        <form action="vacuna" method="post">
+         	<input th:value="${vacuna.idVacuna}" name="id">
+	        <b>Nombre</b>
+	        <input th:value="${vacuna.nombre}" name="nombre">
+        <button>Editar</button>
+</form>
 </body>
 </html>
