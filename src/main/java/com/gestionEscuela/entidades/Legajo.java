@@ -1,5 +1,7 @@
 package com.gestionEscuela.entidades;
 
+import java.util.Date;
+
 //----------------------------------------
 	// ANOTACIONES
 
@@ -29,8 +31,10 @@ public class Legajo {
 	private Boolean cooperadora;
 	private String descripcionCooperadora;
 	private String anotaciones;
-	
-	 @OneToMany
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
+	 @OneToMany(mappedBy = "idVacuna")
 	 private List<Vacunas> vacunas;
 	
 	public Integer getIdLegajo() {
@@ -82,8 +86,45 @@ public class Legajo {
 	this.anotaciones = anotaciones;
 	}
 	
-	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario, String descripcionTitulo
-			,Boolean cooperadora, String descripcionCooperadora, String anotaciones) {
+
+	public Boolean getPartidaNacimiento() {
+		return partidaNacimiento;
+	}
+	public void setPartidaNacimiento(Boolean partidaNacimiento) {
+		this.partidaNacimiento = partidaNacimiento;
+	}
+	public List<Vacunas> getVacunas() {
+		return vacunas;
+	}
+	public void setVacunas(List<Vacunas> vacunas) {
+		this.vacunas = vacunas;
+	}
+	
+	public Boolean getAlta() {
+		return alta;
+	}
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechaEdit() {
+		return fechaEdit;
+	}
+	public void setFechaEdit(Date fechaEdit) {
+		this.fechaEdit = fechaEdit;
+	}
+	public Legajo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario,
+			String descripcionTitulo, Boolean cooperadora, String descripcionCooperadora, String anotaciones,
+			Boolean alta, Date fechaCreacion, Date fechaEdit, List<Vacunas> vacunas) {
 		super();
 		this.idLegajo = idLegajo;
 		this.partidaNacimiento = partidaNacimiento;
@@ -92,9 +133,11 @@ public class Legajo {
 		this.descripcionTitulo = descripcionTitulo;
 		this.cooperadora = cooperadora;
 		this.descripcionCooperadora = descripcionCooperadora;
+		this.anotaciones = anotaciones;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.vacunas = vacunas;
 	}
-	public Legajo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 }

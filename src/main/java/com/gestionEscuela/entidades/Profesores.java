@@ -25,10 +25,11 @@ public class Profesores {
 	private Date tomaposesion;
 	private Integer horascatedrastotales;
 	private String observaciones;
-	
-	
-    @OneToMany
+    @OneToMany(mappedBy = "idMateria")
     private List<Materias> materias;
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
 	
 	public Integer getIdProfesor() {
 	return idProfesor;
@@ -90,8 +91,44 @@ public class Profesores {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
-	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio, Integer telefono, 
-			String email, Date tomaposesion, Integer horascatedrastotales, String observaciones) {
+
+	
+	
+	public Boolean getAlta() {
+		return alta;
+	}
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechaEdit() {
+		return fechaEdit;
+	}
+	public void setFechaEdit(Date fechaEdit) {
+		this.fechaEdit = fechaEdit;
+	}
+	public List<Materias> getMaterias() {
+		return materias;
+	}
+	public void setMaterias(List<Materias> materias) {
+		this.materias = materias;
+	}
+	public void setTomaposesion(Date tomaposesion) {
+		this.tomaposesion = tomaposesion;
+	}
+	public Profesores() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio,
+			Integer telefono, String email, Date tomaposesion, Integer horascatedrastotales, String observaciones,
+			List<Materias> materias, Boolean alta, Date fechaCreacion, Date fechaEdit) {
+		super();
 		this.idProfesor = idProfesor;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -102,11 +139,10 @@ public class Profesores {
 		this.tomaposesion = tomaposesion;
 		this.horascatedrastotales = horascatedrastotales;
 		this.observaciones = observaciones;
-		
+		this.materias = materias;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
 	}
 	
-	public Profesores() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 }

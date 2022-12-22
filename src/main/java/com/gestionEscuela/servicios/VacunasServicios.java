@@ -83,8 +83,8 @@ public class VacunasServicios {
 	
 public Vacunas buscarPorId(Integer id) {
 		
-		Vacunas editorial = vacunasRepositorio.findById(id).get();
+		Vacunas vacuna = vacunasRepositorio.findById(id).get();
 		
-		return editorial;
+		return vacuna;
 	}
 }

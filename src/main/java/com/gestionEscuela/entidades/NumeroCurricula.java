@@ -1,5 +1,6 @@
 package com.gestionEscuela.entidades;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -14,8 +15,11 @@ public class NumeroCurricula {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCurricula;
 	private String nombre;
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
 	
-	 @OneToMany
+	 @OneToMany(mappedBy = "idMateria")
 	 private List<Materias> materias;
 	
 
@@ -31,5 +35,41 @@ public class NumeroCurricula {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public List<Materias> getMaterias() {
+		return materias;
+	}
+	public void setMaterias(List<Materias> materias) {
+		this.materias = materias;
+	}
+	public Boolean getAlta() {
+		return alta;
+	}
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechaEdit() {
+		return fechaEdit;
+	}
+	public void setFechaEdit(Date fechaEdit) {
+		this.fechaEdit = fechaEdit;
+	}
+	public NumeroCurricula(Integer idCurricula, String nombre, Boolean alta, Date fechaCreacion, Date fechaEdit,
+			List<Materias> materias) {
+		super();
+		this.idCurricula = idCurricula;
+		this.nombre = nombre;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.materias = materias;
+	}
+	
+	
 
 }

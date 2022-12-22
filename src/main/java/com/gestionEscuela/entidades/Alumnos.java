@@ -1,5 +1,8 @@
 package com.gestionEscuela.entidades;
 
+import java.util.Date;
+import java.util.List;
+
 //-----------------------------------------------------------------------------------------
 	// ANOTACIONES
 
@@ -13,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -27,6 +31,11 @@ public class Alumnos {
 	private String domicilio;
 	private String email;
 	private String observaciones;
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
+	@OneToMany(mappedBy = "idMateria")
+	private List<Materias> materias;
 	
 	public Integer getIdAlumno() {
 		return idAlumno;
@@ -76,20 +85,52 @@ public class Alumnos {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
-	public Alumnos(Integer idAlumno, String nombre, String apellido, Integer dni, String domicilio, Integer telefono, 
-			String email, String observaciones) {
-		super();
-		this.idAlumno = idAlumno;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
-		this.domicilio = domicilio;
-		this.telefono = telefono;
-		this.email = email;
-		this.observaciones = observaciones;
+	
+	public List<Materias> getMaterias() {
+		return materias;
+	}
+	public void setMaterias(List<Materias> materias) {
+		this.materias = materias;
+	}
+	
+	public Boolean getAlta() {
+		return alta;
+	}
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechaEdit() {
+		return fechaEdit;
+	}
+	public void setFechaEdit(Date fechaEdit) {
+		this.fechaEdit = fechaEdit;
 	}
 	public Alumnos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Alumnos(Integer idAlumno, String nombre, String apellido, Integer dni, Integer telefono, String domicilio,
+			String email, String observaciones, Boolean alta, Date fechaCreacion, Date fechaEdit,
+			List<Materias> materias) {
+		super();
+		this.idAlumno = idAlumno;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.telefono = telefono;
+		this.domicilio = domicilio;
+		this.email = email;
+		this.observaciones = observaciones;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.materias = materias;
+	}
+	
 }
