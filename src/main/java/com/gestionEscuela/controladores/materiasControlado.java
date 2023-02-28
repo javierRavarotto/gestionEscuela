@@ -1,5 +1,6 @@
 package com.gestionEscuela.controladores;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -24,10 +25,18 @@ import com.gestionEscuela.servicios.MateriasServicios;
 import com.gestionEscuela.servicios.NumeroCurriculaServicios;
 
 import errorServicio.ErrorServicio;
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 
 @Controller
 @RequestMapping("/materias")
 public class materiasControlado {
+<<<<<<< HEAD
 	Boolean	altas=true;
 	
 	@Autowired
@@ -38,11 +47,17 @@ public class materiasControlado {
 	
 	@Autowired
 	NumeroCurriculaServicios numeroCurriculaServicio;
+=======
+
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	
 	@GetMapping("/lista")
 	public ModelAndView lista(ModelMap model) {
 		ModelAndView mav = new ModelAndView("materias/listaMaterias");
+<<<<<<< HEAD
 		model.put("altas",altas);
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		return mav;
 	}
 	@GetMapping("/agregar")
@@ -50,6 +65,7 @@ public class materiasControlado {
 		ModelAndView mav = new ModelAndView("materias/agregarMateria");
 		return mav;
 	}
+<<<<<<< HEAD
 	
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
@@ -164,4 +180,6 @@ public class materiasControlado {
 		return rv;
 	}
 	
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 }

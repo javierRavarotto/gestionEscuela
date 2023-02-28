@@ -1,5 +1,6 @@
 package com.gestionEscuela.controladores;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -131,5 +132,8 @@ public class articulosControlador {
 		rv.setUrl("/articulos/lista");
 		return rv;
 	}
+=======
+public class articulosControlador {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 
 }

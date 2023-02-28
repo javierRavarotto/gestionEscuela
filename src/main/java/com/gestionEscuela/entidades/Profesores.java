@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 
+<<<<<<< HEAD
 // falta articulos tomados
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 
 @Entity
 public class Profesores {
@@ -26,11 +29,18 @@ public class Profesores {
 	private Date tomaposesion;
 	private Integer horascatedrastotales;
 	private String observaciones;
+<<<<<<< HEAD
     @OneToMany(mappedBy = "idMateria")
     private List<Materias> materias;
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
+=======
+	
+	
+    @OneToMany
+    private List<Materias> materias;
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	
 	public Integer getIdProfesor() {
 	return idProfesor;
@@ -92,6 +102,7 @@ public class Profesores {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
+<<<<<<< HEAD
 
 	
 	
@@ -130,6 +141,10 @@ public class Profesores {
 			Integer telefono, String email, Date tomaposesion, Integer horascatedrastotales, String observaciones,
 			List<Materias> materias, Boolean alta, Date fechaCreacion, Date fechaEdit) {
 		super();
+=======
+	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio, Integer telefono, 
+			String email, Date tomaposesion, Integer horascatedrastotales, String observaciones) {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		this.idProfesor = idProfesor;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -140,10 +155,20 @@ public class Profesores {
 		this.tomaposesion = tomaposesion;
 		this.horascatedrastotales = horascatedrastotales;
 		this.observaciones = observaciones;
+<<<<<<< HEAD
 		this.materias = materias;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
 	}
 	
+=======
+		
+	}
+	
+	public Profesores() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 }

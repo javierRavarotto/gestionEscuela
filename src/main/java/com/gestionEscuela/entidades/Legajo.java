@@ -1,7 +1,10 @@
 package com.gestionEscuela.entidades;
 
+<<<<<<< HEAD
 import java.util.Date;
 
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 //----------------------------------------
 	// ANOTACIONES
 
@@ -31,10 +34,15 @@ public class Legajo {
 	private Boolean cooperadora;
 	private String descripcionCooperadora;
 	private String anotaciones;
+<<<<<<< HEAD
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
 	 @OneToMany(mappedBy = "idVacuna")
+=======
+	
+	 @OneToMany
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	 private List<Vacunas> vacunas;
 	
 	public Integer getIdLegajo() {
@@ -86,6 +94,7 @@ public class Legajo {
 	this.anotaciones = anotaciones;
 	}
 	
+<<<<<<< HEAD
 
 	public Boolean getPartidaNacimiento() {
 		return partidaNacimiento;
@@ -125,6 +134,10 @@ public class Legajo {
 	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario,
 			String descripcionTitulo, Boolean cooperadora, String descripcionCooperadora, String anotaciones,
 			Boolean alta, Date fechaCreacion, Date fechaEdit, List<Vacunas> vacunas) {
+=======
+	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario, String descripcionTitulo
+			,Boolean cooperadora, String descripcionCooperadora, String anotaciones) {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		super();
 		this.idLegajo = idLegajo;
 		this.partidaNacimiento = partidaNacimiento;
@@ -133,6 +146,7 @@ public class Legajo {
 		this.descripcionTitulo = descripcionTitulo;
 		this.cooperadora = cooperadora;
 		this.descripcionCooperadora = descripcionCooperadora;
+<<<<<<< HEAD
 		this.anotaciones = anotaciones;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
@@ -140,4 +154,11 @@ public class Legajo {
 		this.vacunas = vacunas;
 	}
 	
+=======
+	}
+	public Legajo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 }

@@ -1,5 +1,6 @@
 package com.gestionEscuela.servicios;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,20 @@ import com.gestionEscuela.repositorios.MateriasRepositorio;
 
 import errorServicio.ErrorServicio;
 
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gestionEscuela.repositorios.MateriasRepositorio;
+
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 @Service
 public class MateriasServicios {
 	
 	@Autowired
 	private MateriasRepositorio materiasRepositorio;
 
+<<<<<<< HEAD
 	public Materias buscarId(Integer id) {
 		Materias materia = materiasRepositorio.findById(id).get();
 		return materia;
@@ -97,4 +106,6 @@ public class MateriasServicios {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 }

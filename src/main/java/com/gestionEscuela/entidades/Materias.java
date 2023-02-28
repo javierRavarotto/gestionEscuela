@@ -1,16 +1,25 @@
 package com.gestionEscuela.entidades;
 
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.ManyToMany;
 
 @Entity
 public class Materias{
+=======
+
+@Entity
+public class Materias {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer  idMateria;
@@ -21,18 +30,29 @@ public class Materias{
 	private String modalidadCursado;
 	private Boolean alta;
 	private Date fechaCreacion;
+<<<<<<< HEAD
 	private Date fechaEdit;
 	@ManyToMany(mappedBy = "materia")	
 	private Set<NumeroCurricula> curriculas;
 	
+=======
+	private Date fechaBaja;
+	
+ 
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	public Materias() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< HEAD
 	public Materias(Integer idMateria, String formato, String nombreMateria, int cantidadHoras, String regularidad,
 			String modalidadCursado, Boolean alta, Date fechaCreacion, Date fechaEdit,
 			Set<NumeroCurricula> curriculas) {
+=======
+	public Materias(int idMateria, String formato, String nombreMateria, int cantidadHoras, String regularidad,
+			String modalidadCursado, Boolean alta, Date fechaCreacion, Date fechaBaja) {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		super();
 		this.idMateria = idMateria;
 		this.formato = formato;
@@ -42,6 +62,7 @@ public class Materias{
 		this.modalidadCursado = modalidadCursado;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
+<<<<<<< HEAD
 		this.fechaEdit = fechaEdit;
 		this.curriculas = curriculas;
 	}
@@ -51,6 +72,16 @@ public class Materias{
 	}
 
 	public void setIdMateria(Integer idMateria) {
+=======
+		this.fechaBaja = fechaBaja;
+	}
+
+	public int getIdMateria() {
+		return idMateria;
+	}
+
+	public void setIdMateria(int idMateria) {
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		this.idMateria = idMateria;
 	}
 
@@ -110,6 +141,7 @@ public class Materias{
 		this.fechaCreacion = fechaCreacion;
 	}
 
+<<<<<<< HEAD
 	public Date getFechaEdit() {
 		return fechaEdit;
 	}
@@ -128,6 +160,16 @@ public class Materias{
 
 	
 	
+=======
+	public Date getFechaBaja() {
+		return fechaBaja;
+	}
+
+	public void setFechaBaja(Date fechaBaja) {
+		this.fechaBaja = fechaBaja;
+	}
+
+>>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 	
 }
 

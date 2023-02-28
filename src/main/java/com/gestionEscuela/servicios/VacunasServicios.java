@@ -57,6 +57,7 @@ public class VacunasServicios {
 	@Transactional
 	public void altaBaja(Integer id)throws ErrorServicio {
 		Vacunas vacuna = vacunasRepositorio.findById(id).get();
+
 		if(vacuna.getAlta()==true) {
 			vacuna.setAlta(false);
 		}else {
@@ -64,7 +65,11 @@ public class VacunasServicios {
 		}
 		vacunasRepositorio.save(vacuna);	
 	}
+
+	
 	public Boolean  mostrarAlta(Boolean altas)throws ErrorServicio {
+
+
 		if(altas==false) {
 			altas=true;
 		}
@@ -76,8 +81,13 @@ public class VacunasServicios {
 		}
 		return altas;
 		}
+
+	
 public Vacunas buscarPorId(Integer id) {
-		Vacunas vacuna = vacunasRepositorio.findById(id).get();
-		return vacuna;
+		
+		Vacunas editorial = vacunasRepositorio.findById(id).get();
+		
+		return editorial;
+
 	}
 }
