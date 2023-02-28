@@ -16,10 +16,14 @@ public class Vacunas {
 	private Boolean alta;
 	private Date fechaCreacion;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private Date fechaEdit;
 =======
 	private Date fechaBaja;
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	private Date fechaEdit;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	public Integer getIdVacuna() {
 		return idVacuna;
 	}
@@ -45,11 +49,15 @@ public class Vacunas {
 		this.fechaCreacion = fechaCreacion;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	
 	
 	
 	public Date getFechaEdit() {
 		return fechaEdit;
+<<<<<<< HEAD
 	}
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
@@ -58,22 +66,32 @@ public class Vacunas {
 =======
 	public Date getFechaBaja() {
 		return fechaBaja;
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	}
-	public void setFechaBaja(Date fechaBaja) {
-		this.fechaBaja = fechaBaja;
+	public void setFechaEdit(Date fechaEdit) {
+		this.fechaEdit = fechaEdit;
 	}
+<<<<<<< HEAD
 	public Vacunas(Integer idVacuna, String nombre, Boolean alta, Date fechaCreacion, Date fechaBaja) {
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	public Vacunas(Integer idVacuna, String nombre, Boolean alta, Date fechaCreacion, Date fechaEdit) {
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		super();
 		this.idVacuna = idVacuna;
 		this.nombre = nombre;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.fechaEdit = fechaEdit;
 =======
 		this.fechaBaja = fechaBaja;
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+		this.fechaEdit = fechaEdit;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	}
 	public Vacunas() {
 		super();

@@ -1,6 +1,7 @@
 package com.gestionEscuela.controladores;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -26,17 +27,35 @@ import com.gestionEscuela.servicios.NumeroCurriculaServicios;
 
 import errorServicio.ErrorServicio;
 =======
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+<<<<<<< HEAD
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+import org.springframework.web.servlet.view.RedirectView;
+
+import com.gestionEscuela.repositorios.MateriasRepositorio;
+import com.gestionEscuela.servicios.MateriasServicios;
+
+import errorServicio.ErrorServicio;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 
 @Controller
 @RequestMapping("/materias")
 public class materiasControlado {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	Boolean	altas=true;
 	
 	@Autowired
@@ -44,20 +63,27 @@ public class materiasControlado {
 	
 	@Autowired
 	MateriasRepositorio materiasRepositorio;
+<<<<<<< HEAD
 	
 	@Autowired
 	NumeroCurriculaServicios numeroCurriculaServicio;
 =======
 
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	
 	@GetMapping("/lista")
 	public ModelAndView lista(ModelMap model) {
 		ModelAndView mav = new ModelAndView("materias/listaMaterias");
 <<<<<<< HEAD
+<<<<<<< HEAD
 		model.put("altas",altas);
 =======
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+		model.put("altas",altas);
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		return mav;
 	}
 	@GetMapping("/agregar")
@@ -65,6 +91,7 @@ public class materiasControlado {
 		ModelAndView mav = new ModelAndView("materias/agregarMateria");
 		return mav;
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 	
 	@ModelAttribute
@@ -76,11 +103,17 @@ public class materiasControlado {
 	
 	@PostMapping("/crearMateria")
 	public RedirectView crearMateriaMetodoPost(Model modelo, @RequestParam String nombre,@RequestParam String formato,@RequestParam Integer cantidadHoras,@RequestParam String modalidadCursaro) 
+=======
+	
+	@PostMapping("/crearMateria")
+	public RedirectView crearMateriaMetodoPost(Model modelo, @RequestParam String nombre) 
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 			throws ErrorServicio {
 
 		RedirectView rv = new RedirectView();
 		try {
 	
+<<<<<<< HEAD
 			Materias newMateria =materiasServicio.crearMateria(nombre,formato,cantidadHoras,modalidadCursaro);
 			
 			if(newMateria != null ) {
@@ -136,6 +169,9 @@ public class materiasControlado {
 		try {
 	
 			materiasServicio.editarMateria(id,nombre,formato,cantidadHoras,modalidadCursaro);
+=======
+			materiasServicio.crearMateria(nombre);
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
 			modelo.addAttribute("nombre", nombre);
@@ -146,6 +182,7 @@ public class materiasControlado {
 		return rv;
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("delete/{id}")
 	public RedirectView deleteMateriasMetodoPost(Model modelo, HttpSession httpSession ,@PathVariable("id")Integer id ) 
 			throws ErrorServicio {
@@ -182,4 +219,7 @@ public class materiasControlado {
 	
 =======
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 }

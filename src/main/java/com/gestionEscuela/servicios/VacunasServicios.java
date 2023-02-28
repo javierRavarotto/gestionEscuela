@@ -65,11 +65,7 @@ public class VacunasServicios {
 		}
 		vacunasRepositorio.save(vacuna);	
 	}
-
-	
 	public Boolean  mostrarAlta(Boolean altas)throws ErrorServicio {
-
-
 		if(altas==false) {
 			altas=true;
 		}
@@ -84,10 +80,7 @@ public class VacunasServicios {
 
 	
 public Vacunas buscarPorId(Integer id) {
-		
-		Vacunas editorial = vacunasRepositorio.findById(id).get();
-		
-		return editorial;
-
+		Vacunas vacuna = vacunasRepositorio.findById(id).get();
+		return vacuna;
 	}
 }

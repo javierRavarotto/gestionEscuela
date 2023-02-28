@@ -1,7 +1,10 @@
 package com.gestionEscuela.entidades;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +29,7 @@ public class NumeroCurricula {
 	private Integer idCurricula;
 	private String nombre;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
@@ -46,8 +50,13 @@ public class NumeroCurricula {
 		this.materia = materias;
 	}
 =======
+=======
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	
-	 @OneToMany
+	 @OneToMany(mappedBy = "idMateria")
 	 private List<Materias> materias;
 	
 
@@ -65,6 +74,15 @@ public class NumeroCurricula {
 		this.nombre = nombre;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	public List<Materias> getMaterias() {
+		return materias;
+	}
+	public void setMaterias(List<Materias> materias) {
+		this.materias = materias;
+	}
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	public Boolean getAlta() {
 		return alta;
 	}
@@ -83,6 +101,7 @@ public class NumeroCurricula {
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
+<<<<<<< HEAD
 	public Set<Materias>  getMaterias() {
 		return materia;
 	}
@@ -98,5 +117,19 @@ public class NumeroCurricula {
 	
 =======
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	public NumeroCurricula(Integer idCurricula, String nombre, Boolean alta, Date fechaCreacion, Date fechaEdit,
+			List<Materias> materias) {
+		super();
+		this.idCurricula = idCurricula;
+		this.nombre = nombre;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.materias = materias;
+	}
+	
+	
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 
 }

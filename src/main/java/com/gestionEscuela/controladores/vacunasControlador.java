@@ -64,10 +64,14 @@ public class vacunasControlador {
 	
 	@PostMapping("/crearVacuna")
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public RedirectView crearVacunaMetodoPost(Model modelo, @RequestParam String nombre) 
 =======
 	public RedirectView crearVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre) 
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	public RedirectView crearVacunaMetodoPost(Model modelo, @RequestParam String nombre) 
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 			throws ErrorServicio {
 
 		RedirectView rv = new RedirectView();

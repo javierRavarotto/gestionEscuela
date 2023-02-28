@@ -30,6 +30,7 @@ public class Profesores {
 	private Integer horascatedrastotales;
 	private String observaciones;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @OneToMany(mappedBy = "idMateria")
     private List<Materias> materias;
 	private Boolean alta;
@@ -41,6 +42,13 @@ public class Profesores {
     @OneToMany
     private List<Materias> materias;
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+    @OneToMany(mappedBy = "idMateria")
+    private List<Materias> materias;
+	private Boolean alta;
+	private Date fechaCreacion;
+	private Date fechaEdit;
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	
 	public Integer getIdProfesor() {
 	return idProfesor;
@@ -103,6 +111,9 @@ public class Profesores {
 		this.observaciones = observaciones;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 
 	
 	
@@ -141,10 +152,13 @@ public class Profesores {
 			Integer telefono, String email, Date tomaposesion, Integer horascatedrastotales, String observaciones,
 			List<Materias> materias, Boolean alta, Date fechaCreacion, Date fechaEdit) {
 		super();
+<<<<<<< HEAD
 =======
 	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio, Integer telefono, 
 			String email, Date tomaposesion, Integer horascatedrastotales, String observaciones) {
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		this.idProfesor = idProfesor;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -156,10 +170,14 @@ public class Profesores {
 		this.horascatedrastotales = horascatedrastotales;
 		this.observaciones = observaciones;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		this.materias = materias;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
+<<<<<<< HEAD
 	}
 	
 =======
@@ -171,4 +189,8 @@ public class Profesores {
 		// TODO Auto-generated constructor stub
 	}
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	}
+	
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 }

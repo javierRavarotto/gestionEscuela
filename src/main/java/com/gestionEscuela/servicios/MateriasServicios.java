@@ -1,6 +1,7 @@
 package com.gestionEscuela.servicios;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +16,30 @@ import com.gestionEscuela.repositorios.MateriasRepositorio;
 import errorServicio.ErrorServicio;
 
 =======
+=======
+import java.util.Date;
+
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.gestionEscuela.entidades.Materias;
 import com.gestionEscuela.repositorios.MateriasRepositorio;
 
+<<<<<<< HEAD
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+import errorServicio.ErrorServicio;
+
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 @Service
 public class MateriasServicios {
 	
 	@Autowired
 	private MateriasRepositorio materiasRepositorio;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public Materias buscarId(Integer id) {
 		Materias materia = materiasRepositorio.findById(id).get();
@@ -38,10 +51,19 @@ public class MateriasServicios {
 		try {
 			Materias materia = new Materias();
 			materia.setIdMateria(0);
+=======
+	@Transactional
+	public void crearMateria(String nombre) throws ErrorServicio {
+		try {
+			
+
+			Materias materia = new Materias();
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 			materia.setNombreMateria(nombre);
 			materia.setAlta(true);
 			materia.setFechaCreacion(new Date());
 			materia.setFechaEdit(null);
+<<<<<<< HEAD
 			materia.setFormato(formato);
 			materia.setRegularidad(null);
 			materia.setCantidadHoras(cantidadHoras);
@@ -85,11 +107,19 @@ public class MateriasServicios {
 			materia.setFormato(formato);
 			materia.setCantidadHoras(cantidadHoras);
 			materia.setModalidadCursado(modalidadCursaro);
+=======
+			materia.setFormato(nombre);
+			materia.setRegularidad(nombre);
+			materia.setCantidadHoras(0);
+			materia.setModalidadCursado(nombre);
+			
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 			materiasRepositorio.save(materia);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}
+<<<<<<< HEAD
 //borrar materia
 	@Transactional
 	public void deleteMateria(Integer id) throws ErrorServicio {
@@ -108,4 +138,7 @@ public class MateriasServicios {
 	}
 =======
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 }

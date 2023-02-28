@@ -1,10 +1,15 @@
 package com.gestionEscuela.entidades;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 =======
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+import java.util.Date;
+
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 //----------------------------------------
 	// ANOTACIONES
 
@@ -35,14 +40,20 @@ public class Legajo {
 	private String descripcionCooperadora;
 	private String anotaciones;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
 	 @OneToMany(mappedBy = "idVacuna")
+<<<<<<< HEAD
 =======
 	
 	 @OneToMany
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	 private List<Vacunas> vacunas;
 	
 	public Integer getIdLegajo() {
@@ -95,6 +106,9 @@ public class Legajo {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 
 	public Boolean getPartidaNacimiento() {
 		return partidaNacimiento;
@@ -134,10 +148,13 @@ public class Legajo {
 	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario,
 			String descripcionTitulo, Boolean cooperadora, String descripcionCooperadora, String anotaciones,
 			Boolean alta, Date fechaCreacion, Date fechaEdit, List<Vacunas> vacunas) {
+<<<<<<< HEAD
 =======
 	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario, String descripcionTitulo
 			,Boolean cooperadora, String descripcionCooperadora, String anotaciones) {
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		super();
 		this.idLegajo = idLegajo;
 		this.partidaNacimiento = partidaNacimiento;
@@ -147,11 +164,15 @@ public class Legajo {
 		this.cooperadora = cooperadora;
 		this.descripcionCooperadora = descripcionCooperadora;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 		this.anotaciones = anotaciones;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
 		this.vacunas = vacunas;
+<<<<<<< HEAD
 	}
 	
 =======
@@ -161,4 +182,8 @@ public class Legajo {
 		// TODO Auto-generated constructor stub
 	}
 >>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
+=======
+	}
+	
+>>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 }
