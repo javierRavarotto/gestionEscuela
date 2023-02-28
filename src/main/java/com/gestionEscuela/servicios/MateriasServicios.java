@@ -81,7 +81,7 @@ public class MateriasServicios {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}
-
+//borrar materia
 	@Transactional
 	public void deleteMateria(Integer id) throws ErrorServicio {
 		
