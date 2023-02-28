@@ -58,7 +58,7 @@ public class numeroCurriculaControlador {
 
 		RedirectView rv = new RedirectView();
 		try {
-	
+			System.out.print(nombre);
 			numeroCurriculaServicio.crearNumeroCurricula(nombre);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -76,6 +76,7 @@ public class numeroCurriculaControlador {
 		
 		NumeroCurricula numeroCurricula = numeroCurriculaServicio.buscarUltima();
 		List<Materias> materias = materiasRepositorio.findAll();
+		System.out.print(numeroCurricula);
 		model.addAttribute("numeroCurricula",numeroCurricula);
 		model.addAttribute("materias",materias);
 		return mav;

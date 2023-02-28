@@ -63,20 +63,10 @@ public class vacunasControlador {
 	}
 	
 	@PostMapping("/crearVacuna")
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public RedirectView crearVacunaMetodoPost(Model modelo, @RequestParam String nombre) 
-=======
 	public RedirectView crearVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre) 
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
-	public RedirectView crearVacunaMetodoPost(Model modelo, @RequestParam String nombre) 
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 			throws ErrorServicio {
-
 		RedirectView rv = new RedirectView();
 		try {
-	
 			vacunasServicio.crearVacuna(nombre);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -113,7 +103,6 @@ public class vacunasControlador {
 	@PostMapping("editar/vacuna")
 	public RedirectView editarVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id) 
 			throws ErrorServicio {
-
 		RedirectView rv = new RedirectView();
 		try {
 	
@@ -130,10 +119,6 @@ public class vacunasControlador {
 	@GetMapping("delete/{id}")
 	public RedirectView deleteVacunaMetodoPost(Model modelo, HttpSession httpSession ,@PathVariable("id")Integer id ) 
 			throws ErrorServicio {
-<<<<<<< HEAD
-=======
-	
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
 		RedirectView rv = new RedirectView();
 		try {
 			 System.out.println(id);

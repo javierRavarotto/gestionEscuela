@@ -41,12 +41,12 @@ public class NumeroCurriculaServicios {
 	@Transactional
 	public void crearNumeroCurricula(String nombre) throws ErrorServicio {
 		try {
-			NumeroCurricula articulo = new NumeroCurricula();
-			articulo.setNombre(nombre);
+			NumeroCurricula curricula = new NumeroCurricula();
+			curricula.setNombre(nombre);
+			curricula.setAlta(true);
+			curricula.setFechaCreacion(new Date()); 
 			
-			articulo.setAlta(true);
-			articulo.setFechaCreacion(new Date()); 
-			numeroCurriculaRepositorio.save(articulo);
+			numeroCurriculaRepositorio.save(curricula);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
@@ -58,7 +58,7 @@ public class NumeroCurriculaServicios {
 		try {
 			NumeroCurricula curricula = buscarId(idCurricula);
 			Materias materia = materiasServicios.buscarId(idMateria);
-			curricula.getMaterias().add(materia);
+			curricula.getMateria().add(materia);
 			
 			 numeroCurriculaRepositorio.save(curricula);
 		} catch (Exception e) {
@@ -71,7 +71,7 @@ public class NumeroCurriculaServicios {
 		try {
 			NumeroCurricula curricula = buscarId(idCurricula);
 			Materias materia = materiasServicios.buscarId(idMateria);
-			curricula.getMaterias().remove(materia);
+			curricula.getMateria().remove(materia);
 			 numeroCurriculaRepositorio.save(curricula);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");

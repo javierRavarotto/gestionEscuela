@@ -1,9 +1,6 @@
 package com.gestionEscuela.controladores;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -135,11 +132,6 @@ public class articulosControlador {
 		rv.setUrl("/articulos/lista");
 		return rv;
 	}
-<<<<<<< HEAD
-=======
-public class articulosControlador {
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
-
 }
+
+

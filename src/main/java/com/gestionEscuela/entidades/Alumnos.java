@@ -1,38 +1,15 @@
 package com.gestionEscuela.entidades;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
-
-=======
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
 import java.util.Date;
 import java.util.List;
-
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
-//-----------------------------------------------------------------------------------------
-	// ANOTACIONES
-
-// Falta el ONE to ONE con el Legajo
-// Falta el Cursado<Listamaterias> No se si era un ONE to ONE o una clase aparte
-
-	// Cierro ANOTACIONES
-//-----------------------------------------------------------------------------------------
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import javax.persistence.OneToMany;
-=======
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
-import javax.persistence.OneToMany;
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
+
+
 
 
 @Entity
@@ -47,21 +24,12 @@ public class Alumnos {
 	private String domicilio;
 	private String email;
 	private String observaciones;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
 	@OneToMany(mappedBy = "idMateria")
 	private List<Materias> materias;
-<<<<<<< HEAD
-	
-=======
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
+
 	
 	public Integer getIdAlumno() {
 		return idAlumno;
@@ -111,10 +79,6 @@ public class Alumnos {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 	
 	public List<Materias> getMaterias() {
 		return materias;
@@ -140,50 +104,12 @@ public class Alumnos {
 	}
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
-<<<<<<< HEAD
+
 	}
 	public Alumnos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Alumnos(Integer idAlumno, String nombre, String apellido, Integer dni, Integer telefono, String domicilio,
-			String email, String observaciones, Boolean alta, Date fechaCreacion, Date fechaEdit,
-			List<Materias> materias) {
-=======
-	public Alumnos(Integer idAlumno, String nombre, String apellido, Integer dni, String domicilio, Integer telefono, 
-			String email, String observaciones) {
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-		super();
-		this.idAlumno = idAlumno;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
-<<<<<<< HEAD
-		this.telefono = telefono;
-		this.domicilio = domicilio;
-		this.email = email;
-		this.observaciones = observaciones;
-		this.alta = alta;
-		this.fechaCreacion = fechaCreacion;
-		this.fechaEdit = fechaEdit;
-		this.materias = materias;
-	}
-	
-=======
-		this.domicilio = domicilio;
-		this.telefono = telefono;
-		this.email = email;
-		this.observaciones = observaciones;
-=======
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
-	}
-	public Alumnos() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-<<<<<<< HEAD
->>>>>>> 0867d048ab1a88a6e17a417c52558aae2aad6bcb
-=======
 	public Alumnos(Integer idAlumno, String nombre, String apellido, Integer dni, Integer telefono, String domicilio,
 			String email, String observaciones, Boolean alta, Date fechaCreacion, Date fechaEdit,
 			List<Materias> materias) {
@@ -201,6 +127,4 @@ public class Alumnos {
 		this.fechaEdit = fechaEdit;
 		this.materias = materias;
 	}
-	
->>>>>>> 4fcfd6bd64c6c87c15d5a4556249cff37af3ee33
 }
