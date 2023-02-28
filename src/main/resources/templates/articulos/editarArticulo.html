@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+ <h5>Editar vacunas</h5>
+
+         <form action="articulo" method="post">
+         	<input th:value="${articulo.idArticulo}" name="id">
+	        <b>Nombre</b>
+	        <input th:value="${articulo.nombre}" name="nombre">
+	          <b>Descripcion</b>
+	        <textarea th:text="${articulo.descripcion}" name="descripcion"></textarea>
+        <button>Editar</button>
+</form>
+</body>
+</html>
