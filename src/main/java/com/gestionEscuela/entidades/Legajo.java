@@ -2,10 +2,13 @@ package com.gestionEscuela.entidades;
 import java.util.Date;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,8 +26,8 @@ public class Legajo {
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
-	@OneToMany(mappedBy = "idVacuna")
-	private List<Vacunas> vacunas;
+	@ManyToMany	
+	private Set<Vacunas> vacunas;
 	
 	public Integer getIdLegajo() {
 		return idLegajo;
@@ -80,10 +83,10 @@ public class Legajo {
 	public void setPartidaNacimiento(Boolean partidaNacimiento) {
 		this.partidaNacimiento = partidaNacimiento;
 	}
-	public List<Vacunas> getVacunas() {
+	public Set<Vacunas> getVacunas() {
 		return vacunas;
 	}
-	public void setVacunas(List<Vacunas> vacunas) {
+	public void setVacunas(Set<Vacunas> vacunas) {
 		this.vacunas = vacunas;
 	}
 	
@@ -111,8 +114,7 @@ public class Legajo {
 	}
 	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario,
 			String descripcionTitulo, Boolean cooperadora, String descripcionCooperadora, String anotaciones,
-			Boolean alta, Date fechaCreacion, Date fechaEdit, List<Vacunas> vacunas) {
-
+			Boolean alta, Date fechaCreacion, Date fechaEdit, Set<Vacunas> vacunas) {
 		super();
 		this.idLegajo = idLegajo;
 		this.partidaNacimiento = partidaNacimiento;
@@ -126,8 +128,17 @@ public class Legajo {
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
 		this.vacunas = vacunas;
-
 		}
+	@Override
+	public String toString() {
+		return "Legajo [idLegajo=" + idLegajo + ", partidaNacimiento=" + partidaNacimiento + ", fotocopiaDNI="
+				+ fotocopiaDNI + ", tituloSecundario=" + tituloSecundario + ", descripcionTitulo=" + descripcionTitulo
+				+ ", cooperadora=" + cooperadora + ", descripcionCooperadora=" + descripcionCooperadora
+				+ ", anotaciones=" + anotaciones + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion
+				+ ", fechaEdit=" + fechaEdit + ", vacunas=" + vacunas + "]";
+	}
+	
+	
 	}
 	
 

@@ -66,5 +66,10 @@ public class Vacunas {
 	public void setFechaBaja(Date fechaBaja) {
 		this.fechaBaja = fechaBaja;
 	}
+	@Override
+	public String toString() {
+		return "Vacunas [idVacuna=" + idVacuna + ", nombre=" + nombre + ", alta=" + alta + ", fechaCreacion="
+				+ fechaCreacion + ", fechaEdit=" + fechaEdit + ", fechaBaja=" + fechaBaja + "]";
+	}
 	
 }

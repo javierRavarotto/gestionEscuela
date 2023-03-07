@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gestionEscuela.entidades.Materias;
 import com.gestionEscuela.entidades.NumeroCurricula;
+import com.gestionEscuela.entidades.Vacunas;
 import com.gestionEscuela.repositorios.MateriasRepositorio;
 import com.gestionEscuela.repositorios.NumeroCurriculaRepositorio;
 
@@ -73,6 +74,52 @@ public class NumeroCurriculaServicios {
 			Materias materia = materiasServicios.buscarId(idMateria);
 			curricula.getMateria().remove(materia);
 			 numeroCurriculaRepositorio.save(curricula);
+		} catch (Exception e) {
+			throw new ErrorServicio("Todos los campos son obligatorios");
+		}
+	}
+	
+	@Transactional
+	public void editarNumeroCurricula(String nombre,Integer id) throws ErrorServicio {
+		try {
+			NumeroCurricula curricula = buscarId(id);
+			curricula.setNombre(nombre);
+			numeroCurriculaRepositorio.save(curricula);
+		} catch (Exception e) {
+			throw new ErrorServicio("Todos los campos son obligatorios");
+		}
+	}
+	
+	@Transactional
+	public void altaBaja(Integer id)throws ErrorServicio {
+		NumeroCurricula curricula = buscarId(id);
+		if(curricula.getAlta()==true) {
+			curricula.setAlta(false);
+		}else {
+			curricula.setAlta(true);
+		}
+		numeroCurriculaRepositorio.save(curricula);	
+	}
+	public Boolean  mostrarAlta(Boolean altas)throws ErrorServicio {
+		if(altas==false) {
+			altas=true;
+		}
+		return altas;
+	}
+	public Boolean  mostrarBaja(Boolean altas)throws ErrorServicio {
+		if(altas==true) {
+			altas=false;
+		}
+		return altas;
+		}
+	
+	@Transactional
+	public void deleteNumeroCurricula(Integer id) throws ErrorServicio {
+		try {
+			NumeroCurricula curricula = buscarId(id);
+			
+			numeroCurriculaRepositorio.delete(curricula);
+			
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}

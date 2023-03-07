@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{../css/generales.css}">
+  <div th:replace="nav/nav.html :: css"></div>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+  <button><a href="./agregar">Agregar legajo</a> </button>
+  <a class="altaBaja" th:href="mostrarAlta" action="mostrarAlta" method="POST">alta</a>
+  <a class="altaBaja" th:href="mostrarBaja" action="mostrarBaja" method="POST">baja</a>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Editar</th>
+        <th th:if="${!altas}" scope="col">Alta</th>
+        <th scope="col">Baja</th>
+      </tr>
+    </thead>
+     <tbody th:if="${altas}">
+      <tr th:each="legajo : ${legajos}" th:if="${legajo.alta}">
+        <td th:text="${legajo.descripcionTitulo}"></td>
+        <td><a class="buttonEdit" th:href="@{editar/}+${legajo.idLegajo}"></a></td>
+        <form action="altaBaja" method="POST">
+          <input class="fechaCampo" th:value="${legajo.idLegajo}" hidden name="id" />
+          <td><button class="buttonCruz"> </button></td>
+        </form>
+      </tr>
+      </tbody>
+       <tbody th:if="${!altas}">
+      <tr th:each="legajo : ${legajos}" th:if="${!legajo.alta}">
+        <td th:text="${legajo.descripcionTitulo}"></td>
+        <td><a class="buttonEdit" th:href="@{editar/}+${legajo.idLegajo}"></a></td>
+        <form action="altaBaja" method="POST">
+          <input class="fechaCampo" th:value="${legajo.idLegajo}" hidden name="id" />
+          <td><button class="buttonCheck"> </button></td>
+        </form>
+          <td><a class="buttonBorrar" th:href="@{delete/}+${legajo.idLegajo}"></a></td>
+      </tr>
+      </tbody>
+</html>

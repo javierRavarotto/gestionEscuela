@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+
+<body>
+    <form action="crearLegajo" method="post">
+        <b>Partida de nacimiento</b>
+        <input type="checkbox" name="partidaNacimiento">
+        
+           <b>Fotocopia DNI</b>
+        <input type="checkbox" name="fotocopiaDNI">
+        
+           <b>Cooperadora</b>
+        <input type="checkbox" name="cooperadora">
+        
+           <b>TituloSecundario</b>
+        <input type="checkbox" name="tituloSecundario">
+        
+        <b>DescripcionTitulo</b>
+        <input type="text" name="descripcionTitulo">
+        
+        <b>Descripcion de Cooperadora</b>
+        <input type="number" name="descripcionCooperadora">
+        
+        <b>Anotaciones</b>
+        <input type="text" name="anotaciones">
+        
+        <button>Crear</button>
+    </form>
+</body>
+</html>

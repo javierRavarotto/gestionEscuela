@@ -121,7 +121,6 @@ public class vacunasControlador {
 			throws ErrorServicio {
 		RedirectView rv = new RedirectView();
 		try {
-			 System.out.println(id);
 			vacunasServicio.deleteVacuna(id);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
