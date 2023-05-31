@@ -44,7 +44,9 @@ public void editarArticulo(String nombre,Integer id,String descripcion) throws E
 	try {
 		Articulos articulo = buscarPorId(id);
 		articulo.setNombre(nombre);
-		articulo.setDescripcion(descripcion);
+		if(descripcion != "") {
+			articulo.setDescripcion(descripcion);
+		}
 		articulosRepositorio.save(articulo);
 	} catch (Exception e) {
 		throw new ErrorServicio("Todos los campos son obligatorios");

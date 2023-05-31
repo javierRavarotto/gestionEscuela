@@ -1,10 +1,46 @@
 table{
 	text-align: center;
 }
+.card{
+	background-color:rgb(33,150,243);
+	margin: 60px;
+	margin-top: 20px;
+	margin-bottom: 1px;
+	
+}
+.lupa{
+	width:25px;
+	height: 25px;
+	background-color: rgba(248, 240, 240, 0.5);
+	border-radius:  7px;
+	background-image: url(../lupa.png);
+  	background-repeat:no-repeat;	
+    background-size: 25px;
+	cursor: pointer;
+	border:none;
+	display: inline-flex;
+	justify-content: center;
+	position: absolute;
+}
+.buscador{
+	 text-indent: 20px;
+}
 
 .buttonCruz{
 	width:33px;
 	height: 33px;
+	background-color: rgb(248, 116, 116);
+	border-radius:  7px;
+	background-image: url(../cruz.png);
+  	background-repeat:no-repeat;	
+    background-size: 33px;
+	cursor: pointer;
+	border:none;
+}
+.buttonCruz2{
+	width:33px;
+	height: 33px;
+	padding: 11px;
 	background-color: rgb(248, 116, 116);
 	border-radius:  7px;
 	background-image: url(../cruz.png);
@@ -51,4 +87,31 @@ table{
 	padding-left:16px;
 	padding-right:16px;
 	padding-top:16px
+}
+.boton{
+	background-color: #0c51a3;
+	padding:2px;
+	border-radius: 4px;
+	color: white;
+	font-size: 17px;
+	
+}
+.boton:hover{
+	background-color: #166cc2;
+}
+ input{
+    background:linear-gradient(to left,rgb(42, 67, 107), rgb(73, 116, 184)); 
+    border: none;
+    border-bottom:solid white 2px;
+    color: white;
+    border-radius: 5px;
+  }
+  label{
+	  color: white;
+  }
+  body{
+	background-color:rgb(102,102,102)
+}
+h5{
+	color: white;
 }

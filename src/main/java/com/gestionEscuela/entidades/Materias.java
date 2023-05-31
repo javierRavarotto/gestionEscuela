@@ -2,14 +2,13 @@ package com.gestionEscuela.entidades;
 
 import java.util.Date;
 import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
-
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Materias{
@@ -29,15 +28,15 @@ public class Materias{
 	private Set<NumeroCurricula> curriculas;
 	private Date fechaBaja;
 	
+	
 	public Materias() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Materias(Integer idMateria, String formato, String nombreMateria, int cantidadHoras, String regularidad,
-			String modalidadCursado, Boolean alta, Date fechaCreacion, Date fechaEdit,
-			Set<NumeroCurricula> curriculas) {
 
+	public Materias(Integer idMateria, String formato, String nombreMateria, int cantidadHoras, String regularidad,
+			String modalidadCursado, Boolean alta, Date fechaCreacion, Date fechaEdit, Set<NumeroCurricula> curriculas,
+			Date fechaBaja, Set<Alumnos> alumnosRegulares, Set<Alumnos> alumnosIregulares) {
 		super();
 		this.idMateria = idMateria;
 		this.formato = formato;
@@ -49,6 +48,8 @@ public class Materias{
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
 		this.curriculas = curriculas;
+		this.fechaBaja = fechaBaja;
+		
 	}
 
 	public Integer getIdMateria() {
@@ -138,6 +139,21 @@ public class Materias{
 	public void setFechaBaja(Date fechaBaja) {
 		this.fechaBaja = fechaBaja;
 	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Materias [idMateria=" + idMateria + ", formato=" + formato + ", nombreMateria=" + nombreMateria
+				+ ", cantidadHoras=" + cantidadHoras + ", regularidad=" + regularidad + ", modalidadCursado="
+				+ modalidadCursado + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion + ", fechaEdit=" + fechaEdit
+				+ ", curriculas=" + curriculas + ", fechaBaja=" + fechaBaja + ", alumnosRegulares=" 
+				+ ", alumnosIregulares="  + "]";
+	}
+
+	
+
+	
 
 	
 }

@@ -12,7 +12,7 @@ import com.gestionEscuela.repositorios.VacunasRepositorio;
 import errorServicio.ErrorServicio;
 
 @Service
-public class VacunasServicios {
+public class VacunasServicios { 
 	
 	@Autowired
 	private VacunasRepositorio vacunasRepositorio;

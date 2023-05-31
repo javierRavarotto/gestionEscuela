@@ -53,14 +53,16 @@ public class legajoControlador {
 		return mav;
 	}
 	
-	@GetMapping("/agregar")
-	public ModelAndView agregar(ModelMap model) {
+	@GetMapping("/agregar/{id}")
+	public ModelAndView agregar(ModelMap model,@PathVariable("id") Integer id) {
+		System.out.print(id);
 		ModelAndView mav = new ModelAndView("legajos/agregarLegajo");
+		model.put("idAlumno",id);
 		return mav;
 	}
 
-	@PostMapping("/crearLegajo")
-	public RedirectView crearLegajoMetodoPost(Model modelo,  Boolean partidaNacimiento ,
+	@PostMapping("agregar/crearLegajo")
+	public RedirectView crearLegajoMetodoPost(Model modelo,Integer idAlumno,  Boolean partidaNacimiento ,
 			 Boolean fotocopiaDNI , Boolean tituloSecundario , 
 			 Boolean cooperadora , @RequestParam String descripcionTitulo,
 			@RequestParam String descripcionCooperadora, @RequestParam String anotaciones) 
@@ -68,24 +70,31 @@ public class legajoControlador {
 		RedirectView rv = new RedirectView();
 		
 		try {
-			legajoServicio.crearLegajo(partidaNacimiento,fotocopiaDNI,tituloSecundario,cooperadora,descripcionTitulo,descripcionCooperadora,anotaciones);
+			legajoServicio.crearLegajo(idAlumno,partidaNacimiento,fotocopiaDNI,tituloSecundario,cooperadora,descripcionTitulo,descripcionCooperadora,anotaciones);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
 			rv.setUrl("redirect:/legajos/lista");
 			return rv;
 		}
 		 Legajo legajo = legajoServicio.buscarUltima();
-		 Integer id = legajo.getIdLegajo();
-		rv.setUrl("/legajos/editar/" + id);
+		 
+		 if(legajo.getIdLegajo() != null) {
+			 Integer id = legajo.getIdLegajo();
+			}
+		
+		rv.setUrl("/alumnos/editar/" + idAlumno );
 		return rv;
 	}
 	@GetMapping("/editar/{id}")
 	public ModelAndView editar(@PathVariable String id,ModelMap model) {
 		ModelAndView mav = new ModelAndView("legajos/editarLegajo");
-		int idNumber = Integer.parseInt(id);
+		Integer idNumber = Integer.parseInt(id);
 		List<Vacunas> vacunas = vacunasRepositorio.findAll();
-		Legajo legajo = legajoServicio.buscarId(idNumber);
-		model.addAttribute("legajo",legajo);
+		if(legajoServicio.buscarId(idNumber) != null) {
+			Legajo legajo = legajoServicio.buscarId(idNumber);
+			model.addAttribute("legajo",legajo);
+		}
+
 		model.addAttribute("vacunas",vacunas);
 		return mav;
 	}

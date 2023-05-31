@@ -1,11 +1,15 @@
 package com.gestionEscuela.entidades;
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Profesores {
@@ -24,6 +28,7 @@ public class Profesores {
     @OneToMany(mappedBy = "idMateria")
     private List<Materias> materias;
 	private Boolean alta;
+
 	private Date fechaCreacion;
 	private Date fechaEdit;
 	public Profesores() {

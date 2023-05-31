@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" th:href="@{../css/generales.css}">
-   
+   <link rel="stylesheet" th:href="@{../css/generales.css}">
   <div th:replace="nav/nav.html :: css"></div>
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 
 <body>
- <div class="row text-center  mt-2 mb-2 justify-content-center">
+  <div class="row text-center  mt-2 mb-2 justify-content-center">
+	     <a class="m-3 boton col-2" href="./agregar">Agregar Alumno</a> 
 		 <a  class="altaBaja m-3  col-1 boton" th:href="mostrarAlta" action="mostrarAlta" method="POST">alta</a>
 		 <a class="altaBaja m-3  col-1 boton" th:href="mostrarBaja" action="mostrarBaja" method="POST">baja</a>
 	</div>
@@ -27,24 +27,25 @@
       </tr>
     </thead>
      <tbody th:if="${altas}">
-      <tr th:each="legajo : ${legajos}" th:if="${legajo.alta}">
-        <td th:text="${legajo.descripcionTitulo}"></td>
-        <td><a class="buttonEdit" th:href="@{editar/}+${legajo.idLegajo}"></a></td>
+      <tr th:each="alumno : ${alumnos}" th:if="${alumno.alta}">
+       <input class="fechaCampo" th:value="${alumno.idAlumno}" hidden name="id" />
+        <td th:text="${alumno.nombre + alumno.apellido}"></td>
+        <td><a class="buttonEdit" th:href="@{editar/}+${alumno.idAlumno}"></a></td>
         <form action="altaBaja" method="POST">
-          <input class="fechaCampo" th:value="${legajo.idLegajo}" hidden name="id" />
+          <input class="fechaCampo" th:value="${alumno.idAlumno}" hidden name="id" />
           <td><button class="buttonCruz"> </button></td>
         </form>
       </tr>
       </tbody>
-       <tbody th:if="${!altas}">
-      <tr th:each="legajo : ${legajos}" th:if="${!legajo.alta}">
-        <td th:text="${legajo.descripcionTitulo}"></td>
-        <td><a class="buttonEdit" th:href="@{editar/}+${legajo.idLegajo}"></a></td>
+        <tbody th:if="${!altas}">
+      <tr th:each="alumno : ${alumnos}" th:if="${!alumno.alta}">
+        <td th:text="${alumno.nombre + alumno.apellido}"></td>
+        <td><a class="buttonEdit" th:href="@{editar/}+${alumno.idAlumno}"></a></td>
         <form action="altaBaja" method="POST">
-          <input class="fechaCampo" th:value="${legajo.idLegajo}" hidden name="id" />
+          <input class="fechaCampo" th:value="${alumno.idAlumno}" hidden name="id" />
           <td><button class="buttonCheck"> </button></td>
         </form>
-          <td><a class="buttonBorrar" th:href="@{delete/}+${legajo.idLegajo}"></a></td>
+         <td><a class="buttonBorrar" th:href="@{delete/}+${alumno.idAlumno}"></a></td>
       </tr>
       </tbody>
 </html>

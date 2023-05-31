@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <div th:replace="nav/nav.html :: css"></div>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/../css/reset.css}">
+	    <link rel="stylesheet" th:href="@{/../css/generales.css}">
+	    
     <title>Document</title>
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
-
 <body>
-    <form action="crearLegajo" method="post">
-        <b>Partida de nacimiento</b>
-        <input type="checkbox" name="partidaNacimiento">
-        
-           <b>Fotocopia DNI</b>
-        <input type="checkbox" name="fotocopiaDNI">
-        
-           <b>Cooperadora</b>
-        <input type="checkbox" name="cooperadora">
-        
-           <b>TituloSecundario</b>
-        <input type="checkbox" name="tituloSecundario">
-        
-        <b>DescripcionTitulo</b>
-        <input type="text" name="descripcionTitulo">
-        
-        <b>Descripcion de Cooperadora</b>
-        <input type="number" name="descripcionCooperadora">
-        
-        <b>Anotaciones</b>
-        <input type="text" name="anotaciones">
-        
-        <button>Crear</button>
+<div class="row justify-content-center">
+    <form action="crearLegajo" method="post" class="col-12 text-center">
+     <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2">Partida de nacimiento</label>
+        <input class="col-6 col-sm-2" type="checkbox" name="partidaNacimiento">
+    </div>
+    <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Fotocopia DNI</label>
+        <input class="col-6 col-sm-2"  type="checkbox" name="fotocopiaDNI">
+    </div>
+    <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Cooperadora</label>
+        <input class="col-6 col-sm-2"  type="checkbox" name="cooperadora">
+    </div>
+    <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">TituloSecundario</label>
+        <input class="col-6 col-sm-2"  type="checkbox" name="tituloSecundario">
+    </div>
+    <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">DescripcionTitulo</label>
+        <input class="col-6 col-sm-2"  type="text" name="descripcionTitulo">
+    </div>
+    <div class="m-2 col-10">
+          <label class="col-3 col-sm-2 text-end m-2">Descripcion de Cooperadora</label>
+        <input class="col-6 col-sm-2"  type="number" name="descripcionCooperadora">
+    </div>
+    <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Anotaciones</label>
+        <input  class="col-6 col-sm-2" type="text" name="anotaciones">
+    </div>
+        <button  class="col-2 boton">Crear</button>
+        <input class="col-6 col-sm-2"  th:value="${idAlumno}" hidden name="idAlumno">
     </form>
+</div>
 </body>
 </html>

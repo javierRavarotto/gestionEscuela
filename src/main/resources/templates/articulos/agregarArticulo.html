@@ -9,12 +9,23 @@
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
-    <form action="crearArticulo" method="post">
-        <b>Nombre</b>
-        <input type="text" name="nombre">
-        <b>Descripcion</b>
-        <input type="text" name="descripcion">
-        <button>Crear</button>
+<div class="row justify-content-center">
+    <form action="crearArticulo" method="post" class="col-12 text-center">
+    
+    
+    
+      <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2">Nombre</label>
+        <input class="col-6 col-sm-2" type="text" name="nombre">
+    </div>
+     <div class="m-2 col-10">
+        <label  class="col-3 col-sm-2 text-end m-2">Descripcion</label>
+        <input class="col-6 col-sm-2" type="text" name="descripcion">
+    </div>
+    
+     <button  class="col-2 boton">Crear</button>
+    
 </form>
+  </div>
 </body>
 </html>

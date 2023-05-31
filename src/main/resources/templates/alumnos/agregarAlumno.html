@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+<div class="row justify-content-center">
+    <form action="crearAlumno" method="post" class="col-12 text-center">
+    
+    <div class="m-2 col-10">
+    <label class="col-3 col-sm-2 text-end m-2">Nombre</label >
+        <input class="col-2 m-2" type="text" name="nombre">
+    </div>
+      <div class="m-2 col-10">
+    <label class="col-3 col-sm-2 text-end m-2">Apellido</label>
+        <input class="col-2 m-2" type="text" name="apellido">
+    </div>
+      <div class="m-2 col-10">
+     <label class="col-3 col-sm-2 text-end m-2">Dni</label>
+        <input class="col-2 m-2" type="text" name="dni">
+    </div>
+      <div class="m-2 col-10">
+    
+         <label class="col-3 col-sm-2 text-end m-2">Telefono</label>
+        <input class="col-2 m-2" type="text" name="telefono">
+    </div>
+      <div class="m-2 col-10">
+     <label class="col-3 col-sm-2 text-end m-2">Domicilio</label>
+        <input class="col-2 m-2" type="text" name="domicilio">
+    </div>
+      <div class="m-2 col-10">
+       <label class="col-3 col-sm-2 text-end m-2">Email</label>
+        <input class="col-2 m-2" type="text" name="email">
+    </div>
+      <div class="m-2 col-10">
+    	<label class="col-3 col-sm-2 text-end m-2">Observaciones</label>
+        <input class="col-2 m-2" type="text" name="observaciones">
+    
+    </div>
+        <button  class="col-2 boton">Crear</button>
+</form>
+</div>
+</body>
+</html>

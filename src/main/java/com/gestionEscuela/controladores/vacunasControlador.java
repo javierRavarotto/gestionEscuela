@@ -59,6 +59,7 @@ public class vacunasControlador {
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
 		List<Vacunas> listaVacunas = vacunasRepositorio.findAll();
+		System.out.print(listaVacunas);
 		modelo.addAttribute("vacunas", listaVacunas);
 	}
 	
@@ -86,9 +87,7 @@ public class vacunasControlador {
 	
 	@GetMapping("mostrarAlta")
 	public String mostrarAlta(ModelMap modelo) throws ErrorServicio {
-
 		altas=vacunasServicio.mostrarAlta(this.altas);
-		 System.out.println(altas);
 		return "redirect:/vacunas/lista";
 	}
 	
@@ -96,7 +95,6 @@ public class vacunasControlador {
 	public String mostrarBaja(ModelMap modelo) throws ErrorServicio {
 
 		altas=vacunasServicio.mostrarBaja(this.altas);
-		 System.out.println(altas);
 		return "redirect:/vacunas/lista";
 	}
 	

@@ -36,7 +36,7 @@ public class LegajoServicios {
 	}
 	
 	@Transactional
-	public void crearLegajo(Boolean partidaNacimiento,Boolean fotocopiaDNI, Boolean tituloSecundario, Boolean cooperadora,
+	public void crearLegajo(Integer idAlmuno, Boolean partidaNacimiento,Boolean fotocopiaDNI, Boolean tituloSecundario, Boolean cooperadora,
 			String descripcionTitulo,String descripcionCooperadora,String anotaciones) throws ErrorServicio {
 		try {
 			Legajo legajo = new Legajo();
@@ -137,7 +137,6 @@ public class LegajoServicios {
 			Legajo legajo = buscarId(idLegajo);
 			Vacunas vacuna = vacunasServicios.buscarPorId(idVacuna);
 			legajo.getVacunas().add(vacuna);
-			
 			 legajoRepositorio.save(legajo);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");

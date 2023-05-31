@@ -14,17 +14,22 @@
 <header th:replace="nav/nav.html :: nav"> </header>
 
 <body>
-   <form action="numeroCurricula" method="post">
+<div class="row justify-content-center">
+   <form action="numeroCurricula" method="post"  class="col-12 text-center">
    	<input hidden th:value="${numeroCurricula.idCurricula}" name="id">
-        <b>Nombre</b>
-        <input type="text"  th:value="${numeroCurricula.nombre}" name="nombre">
-        <button>Editar</button>
+           <div class="m-2 col-10">
+        <label  class="col-3 col-sm-2 text-end m-2">Nombre</label>
+        <input class="col-6 col-sm-2" type="text"  th:value="${numeroCurricula.nombre}" name="nombre">
+           </div>
+      
+        <button class="col-2 boton">Editar</button>
 </form>
+</div>
   <div class="row justify-content-center mt-3">
     <div class="col-4">
       <table class="table table-dark">
         <thead>
-        <h3 class="row justify-content-center m-2">Materias</h3>
+        <h5 class="row justify-content-center m-2">Materias</h5>
           <tr>
             <th >Nombre</th>
             <th>Modalidad</th>
@@ -47,7 +52,7 @@
     <div class="col-4">
       <table class="table table-dark">
         <thead  >
-        <h3 class="row justify-content-center m-2">Materias Curricula</h3>
+        <h5 class="row justify-content-center m-2">Materias Curricula</h5>
           <tr>
             <th >Nombre</th>
             <th>Modalidad</th>

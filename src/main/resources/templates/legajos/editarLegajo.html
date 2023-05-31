@@ -12,31 +12,61 @@
 <header th:replace="nav/nav.html :: nav"> </header>
 
 <body>
-    <form action="legajo" method="post">
+<div class="row justify-content-center">
+    <form action="legajo" method="post" class="col-12 text-center">
     	 <input class="fechaCampo" th:value="${legajo.idLegajo}" hidden name="id" />
-        <b>Partida de nacimiento</b>
-        <input type="checkbox" th:field="${legajo.partidaNacimiento}" name="partidaNacimiento">
         
-           <b>Fotocopia DNI</b>
-        <input type="checkbox" th:field="${legajo.fotocopiaDNI}" name="fotocopiaDNI">
+          <div class="m-2 col-10">
+          <label class="col-3 col-sm-2 text-end m-2">Partida de nacimiento</label>
+        <input class="col-6 col-sm-2" type="checkbox" th:field="${legajo.partidaNacimiento}" name="partidaNacimiento">
+    </div>
+    
+        <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2">Fotocopia DNI</label>
+        <input class="col-6 col-sm-2" type="checkbox" th:field="${legajo.fotocopiaDNI}" name="fotocopiaDNI">
+    </div>
+    
+        <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Cooperadora</label>
+        <input class="col-6 col-sm-2"type="checkbox" th:field="${legajo.cooperadora}" name="cooperadora">
+    </div>
+    
+        <div class="m-2 col-10">
         
-           <b>Cooperadora</b>
-        <input type="checkbox" th:field="${legajo.cooperadora}" name="cooperadora">
+           <label class="col-3 col-sm-2 text-end m-2">TituloSecundario</label>
+        <input class="col-6 col-sm-2" type="checkbox" th:field="${legajo.tituloSecundario}" name="tituloSecundario">
+    </div>
+    
+        <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">DescripcionTitulo</label>
+        <input class="col-6 col-sm-2" type="text" th:value="${legajo.descripcionTitulo}" name="descripcionTitulo">
+    </div>
+    
+        <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2">Descripcion de Cooperadora</label>
+        <input class="col-6 col-sm-2" type="number" th:value="${legajo.descripcionCooperadora}" name="descripcionCooperadora">
+    </div>
+
+  <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2"> Anotaciones</label>
+        <input class="col-6 col-sm-2" type="text" th:value="${legajo.anotaciones}" name="anotaciones">
+    </div>
+      
         
-           <b>TituloSecundario</b>
-        <input type="checkbox" th:field="${legajo.tituloSecundario}" name="tituloSecundario">
+           
         
-        <b>DescripcionTitulo</b>
-        <input type="text" th:value="${legajo.descripcionTitulo}" name="descripcionTitulo">
+          
         
-        <b>Descripcion de Cooperadora</b>
-        <input type="number" th:value="${legajo.descripcionCooperadora}" name="descripcionCooperadora">
         
-        <b>Anotaciones</b>
-        <input type="text" th:value="${legajo.anotaciones}" name="anotaciones">
+       
         
-        <button>Editar</button>
+        
+        
+       
+        
+        <button  class="col-2 boton">Editar</button>
     </form>
+</div>
      <table class="table table-dark">
   <thead>
     <tr>

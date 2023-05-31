@@ -10,28 +10,52 @@
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
-  <form action="materia" method="post">
- 		
-  		<input hidden th:value="${materia.idMateria}" name="id">
-        <b>Nombre</b>
-        <input type="text" th:value="${materia.nombreMateria}" name="nombre">
-        <b>Formato</b>
-        <input type="text" th:value="${materia.formato}" name="formato">
-        <b>Cantidad de horas</b>
-        <input type="number"th:value="${materia.cantidadHoras}" name="cantidadHoras">
-        <b>Modalidad de cursado</b>
-        <input type="text" th:value="${materia.modalidadCursado}" name="modalidadCursaro">
-        <button>Editar</button>
+<div class="row justify-content-center">
+  <form action="materia" method="post" class="col-12 text-center">
+  <h5>Editar materia</h5>
+  <input hidden th:value="${materia.idMateria}" name="id">
+   <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Nombre</label>
+        <input class="col-6 col-sm-2" type="text" th:value="${materia.nombreMateria}" name="nombre">
+    </div>
+    
+   <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Formato</label>
+        <input class="col-6 col-sm-2"  type="text" th:value="${materia.formato}" name="formato">
+    </div>
+    
+   <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Cantidad de horas</label>
+        <input class="col-6 col-sm-2" type="number"th:value="${materia.cantidadHoras}" name="cantidadHoras">
+    </div>
+    
+   <div class="m-2 col-10">
+        <label class="col-3 col-sm-2 text-end m-2">Modalidad de cursado</label>
+        <input class="col-6 col-sm-2" type="text" th:value="${materia.modalidadCursado}" name="modalidadCursaro">
+    </div>
+
+        <button class="col-2 boton">Editar</button>
 </form>
+</div>
 
           <tr th:each="mater : ${materia.curriculas}" >
-	          <form  action="eliminarMateriaListaCurricula" method="POST">
+	          
+	          <form  action="eliminarMateriaListaCurricula" method="POST" class="col-12 text-center align-items-start ">
 	          	<input class="fechaCampo" hidden name="idCurricula" th:value="${mater.idCurricula}" />
              	<input class="fechaCampo" hidden name="idMateria" th:value="${materia.idMateria}" />
-	 			<input class="fechaCampo"   th:value="${mater.idCurricula}" />
-             	<input class="fechaCampo"   th:value="${mater.nombre}" />
-	          	 <td class="col-2" ><button class="buttonCruz"> </button></td>
-	          
+              <div class="col-12 mb-3">
+	 			<input  class="col-6 col-sm-2 fechaCampo "   th:value="${mater.idCurricula}" />
+             	<input   class="col-6 col-sm-2 fechaCampo "  th:value="${mater.nombre}" />
+             	<button class="buttonCruz2"> </button>
+             	</div>
+             	 
+           	
+           		
+           		
+           		
+             	
+             	
+	          	 
 	          </form>
           </tr>
 </body>
