@@ -1,13 +1,13 @@
 package com.gestionEscuela.entidades;
-
-
 import java.util.Date;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Articulos {
@@ -21,6 +21,7 @@ public class Articulos {
 	private Date fechaEdit;
 	@ManyToOne
 	private ArticulosTomados articulosTomados;
+
 	public Integer getIdArticulo() {
 		return idArticulo;
 	}
@@ -51,8 +52,6 @@ public class Articulos {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	
-
 	public ArticulosTomados getArticulosTomados() {
 		return articulosTomados;
 	}
@@ -83,8 +82,5 @@ public class Articulos {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
 
 }

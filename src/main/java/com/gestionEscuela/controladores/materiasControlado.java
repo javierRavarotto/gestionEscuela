@@ -1,5 +1,6 @@
 package com.gestionEscuela.controladores;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,6 +26,8 @@ import com.gestionEscuela.servicios.NumeroCurriculaServicios;
 
 import errorServicio.ErrorServicio;
 
+
+
 @Controller
 @RequestMapping("/materias")
 public class materiasControlado {
@@ -35,9 +38,14 @@ public class materiasControlado {
 	
 	@Autowired
 	MateriasRepositorio materiasRepositorio;
+
 	
 	@Autowired
 	NumeroCurriculaServicios numeroCurriculaServicio;
+
+
+
+
 	
 	@GetMapping("/lista")
 	public ModelAndView lista(ModelMap model) {
@@ -50,7 +58,7 @@ public class materiasControlado {
 		ModelAndView mav = new ModelAndView("materias/agregarMateria");
 		return mav;
 	}
-	
+
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
 		List<Materias> listaMaterias = materiasRepositorio.findAll();
@@ -60,11 +68,13 @@ public class materiasControlado {
 	
 	@PostMapping("/crearMateria")
 	public RedirectView crearMateriaMetodoPost(Model modelo, @RequestParam String nombre,@RequestParam String formato,@RequestParam Integer cantidadHoras,@RequestParam String modalidadCursaro) 
+
 			throws ErrorServicio {
 
 		RedirectView rv = new RedirectView();
 		try {
 	
+
 			Materias newMateria =materiasServicio.crearMateria(nombre,formato,cantidadHoras,modalidadCursaro);
 			
 			if(newMateria != null ) {
@@ -115,10 +125,8 @@ public class materiasControlado {
 	@PostMapping("editar/materia")
 	public RedirectView editarMateriaMetodoPost(Model modelo, HttpSession httpSession,@RequestParam Integer id , @RequestParam String nombre,@RequestParam String formato,@RequestParam Integer cantidadHoras,@RequestParam String modalidadCursaro) 
 			throws ErrorServicio {
-
 		RedirectView rv = new RedirectView();
 		try {
-	
 			materiasServicio.editarMateria(id,nombre,formato,cantidadHoras,modalidadCursaro);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -130,6 +138,7 @@ public class materiasControlado {
 		return rv;
 	}
 	
+
 	@GetMapping("delete/{id}")
 	public RedirectView deleteMateriasMetodoPost(Model modelo, HttpSession httpSession ,@PathVariable("id")Integer id ) 
 			throws ErrorServicio {
@@ -164,4 +173,5 @@ public class materiasControlado {
 		return rv;
 	}
 	
+
 }

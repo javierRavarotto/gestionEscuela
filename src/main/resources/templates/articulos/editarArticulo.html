@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="nav/nav.html :: css"></div>
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{../../css/generales.css}">
+    <div th:replace="nav/nav.html :: css"></div>
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
- <h5>Editar vacunas</h5>
+<div class="row justify-content-center">
+  <form action="articulo" method="post" class="col-12 text-center">
+  <h5>Editar materia</h5>
+  <input hidden th:value="${articulo.idArticulo}" name="id">
+   <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Nombre</label>
+        <input class="col-6 col-sm-2" type="text" th:value="${articulo.nombre}" name="nombre">
+    </div>
+    
+   <div class="m-2 col-10">
+         <label class="col-3 col-sm-2 text-end m-2">Descripcion</label>
+        <textarea class="col-6 col-sm-2"  type="text"  th:placeholder="${articulo.descripcion}"  name="descripcion"></textarea>
+    </div>
+    
+  
+    
+   
 
-         <form action="articulo" method="post">
-         	<input th:value="${articulo.idArticulo}" name="id">
-	        <b>Nombre</b>
-	        <input th:value="${articulo.nombre}" name="nombre">
-	          <b>Descripcion</b>
-	        <textarea th:text="${articulo.descripcion}" name="descripcion"></textarea>
-        <button>Editar</button>
+        <button class="col-2 boton">Editar</button>
 </form>
+</div>
+
+         
 </body>
 </html>

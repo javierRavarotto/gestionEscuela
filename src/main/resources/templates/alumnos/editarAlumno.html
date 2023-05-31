@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <link rel="stylesheet" th:href="@{../../css/generales.css}">
+    <title>Document</title>
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+<div class="row justify-content-center">
+         <form action="alumno" method="post"  class="col-12 text-center">
+          <input th:value="${alumno.idAlumno}" hidden name="id">
+          <h5>Editar Alumnos</h5>
+          
+           <div class="m-2 col-10">
+           <label class="col-3 col-sm-2 text-end m-2">Nombre</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.nombre}" name="nombre">
+           </div>
+           
+           <div class="m-2 col-10">
+              <label class="col-3 col-sm-2 text-end m-2">Apellido</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.apellido}" name="apellido">
+           </div>
+           
+           <div class="m-2 col-10">
+               <label class="col-3 col-sm-2 text-end m-2">Dni</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.dni}" name="dni">
+           </div>
+           
+           <div class="m-2 col-10">
+             <label class="col-3 col-sm-2 text-end m-2">Telefono</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.telefono}" name="telefono">
+           </div>
+           
+           <div class="m-2 col-10">
+            <label  class="col-3 col-sm-2 text-end m-2">Domicilio</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.domicilio}" name="domicilio">
+           </div>
+           
+           <div class="m-2 col-10">
+           <label class="col-3 col-sm-2 text-end m-2">Email</label>
+	        <input class="col-6 col-sm-2" th:value="${alumno.email}" name="email">
+           </div>
+           <div class="m-2 col-10">
+           <label class="col-3 col-sm-2 text-end m-2">Observacion</label>
+	        <textarea class="col-6 col-sm-2" th:text="${alumno.observaciones}" name="observacion"></textarea>
+           </div>
+        <button class="col-2 boton">Editar</button>
+        <button class="col-2 boton"><a  th:href="@{../../legajos/agregar/}+${alumno.idAlumno}">Agregar legajo</a> </button>
+        <button class="col-2 boton"><a  th:href="@{../../legajos/editar/}+${alumno.idAlumno}">Editar legajo</a> </button>
+     
+         
+</form>
+</div>
+</body>

@@ -16,6 +16,20 @@ public class Vacunas {
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
+	private Date fechaBaja;
+	public Vacunas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Vacunas(Integer idVacuna, String nombre, Boolean alta, Date fechaCreacion, Date fechaEdit, Date fechaBaja) {
+		super();
+		this.idVacuna = idVacuna;
+		this.nombre = nombre;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.fechaBaja = fechaBaja;
+	}
 	public Integer getIdVacuna() {
 		return idVacuna;
 	}
@@ -40,29 +54,22 @@ public class Vacunas {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	
-	
-	
 	public Date getFechaEdit() {
 		return fechaEdit;
 	}
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
-	public Vacunas(Integer idVacuna, String nombre, Boolean alta, Date fechaCreacion, Date fechaEdit) {
-		super();
-		this.idVacuna = idVacuna;
-		this.nombre = nombre;
-		this.alta = alta;
-		this.fechaCreacion = fechaCreacion;
-		this.fechaEdit = fechaEdit;
+	public Date getFechaBaja() {
+		return fechaBaja;
 	}
-	public Vacunas() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setFechaBaja(Date fechaBaja) {
+		this.fechaBaja = fechaBaja;
 	}
-	
-
-	
+	@Override
+	public String toString() {
+		return "Vacunas [idVacuna=" + idVacuna + ", nombre=" + nombre + ", alta=" + alta + ", fechaCreacion="
+				+ fechaCreacion + ", fechaEdit=" + fechaEdit + ", fechaBaja=" + fechaBaja + "]";
+	}
 	
 }

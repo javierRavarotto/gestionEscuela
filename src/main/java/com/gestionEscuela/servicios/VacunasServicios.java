@@ -12,7 +12,7 @@ import com.gestionEscuela.repositorios.VacunasRepositorio;
 import errorServicio.ErrorServicio;
 
 @Service
-public class VacunasServicios {
+public class VacunasServicios { 
 	
 	@Autowired
 	private VacunasRepositorio vacunasRepositorio;
@@ -57,6 +57,7 @@ public class VacunasServicios {
 	@Transactional
 	public void altaBaja(Integer id)throws ErrorServicio {
 		Vacunas vacuna = vacunasRepositorio.findById(id).get();
+
 		if(vacuna.getAlta()==true) {
 			vacuna.setAlta(false);
 		}else {
@@ -76,6 +77,8 @@ public class VacunasServicios {
 		}
 		return altas;
 		}
+
+	
 public Vacunas buscarPorId(Integer id) {
 		Vacunas vacuna = vacunasRepositorio.findById(id).get();
 		return vacuna;

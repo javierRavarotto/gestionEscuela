@@ -59,16 +59,15 @@ public class vacunasControlador {
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
 		List<Vacunas> listaVacunas = vacunasRepositorio.findAll();
+		System.out.print(listaVacunas);
 		modelo.addAttribute("vacunas", listaVacunas);
 	}
 	
 	@PostMapping("/crearVacuna")
-	public RedirectView crearVacunaMetodoPost(Model modelo, @RequestParam String nombre) 
+	public RedirectView crearVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre) 
 			throws ErrorServicio {
-
 		RedirectView rv = new RedirectView();
 		try {
-	
 			vacunasServicio.crearVacuna(nombre);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -88,9 +87,7 @@ public class vacunasControlador {
 	
 	@GetMapping("mostrarAlta")
 	public String mostrarAlta(ModelMap modelo) throws ErrorServicio {
-
 		altas=vacunasServicio.mostrarAlta(this.altas);
-		 System.out.println(altas);
 		return "redirect:/vacunas/lista";
 	}
 	
@@ -98,14 +95,12 @@ public class vacunasControlador {
 	public String mostrarBaja(ModelMap modelo) throws ErrorServicio {
 
 		altas=vacunasServicio.mostrarBaja(this.altas);
-		 System.out.println(altas);
 		return "redirect:/vacunas/lista";
 	}
 	
 	@PostMapping("editar/vacuna")
 	public RedirectView editarVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id) 
 			throws ErrorServicio {
-
 		RedirectView rv = new RedirectView();
 		try {
 	
@@ -124,7 +119,6 @@ public class vacunasControlador {
 			throws ErrorServicio {
 		RedirectView rv = new RedirectView();
 		try {
-			 System.out.println(id);
 			vacunasServicio.deleteVacuna(id);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());

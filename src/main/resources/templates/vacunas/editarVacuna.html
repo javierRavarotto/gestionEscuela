@@ -5,17 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div th:replace="nav/nav.html :: css"></div>
+    <link rel="stylesheet" th:href="@{../../css/generales.css}">
     <title>Document</title>
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
- <h5>Editar vacunas</h5>
+<div class="row justify-content-center">
 
-        <form action="vacuna" method="post">
-         	<input th:value="${vacuna.idVacuna}" name="id">
-	        <b>Nombre</b>
-	        <input th:value="${vacuna.nombre}" name="nombre">
-        <button>Editar</button>
+        <form action="vacuna" method="post"  class="col-12 text-center">
+ 			<h5>Editar vacunas</h5>
+          <div class="m-2 col-10">
+       <label class="col-3 col-sm-2 text-end m-2">Id</label>
+         	<input class="col-6 col-sm-2"  th:value="${vacuna.idVacuna}" name="id">
+    </div>
+        
+          <div class="m-2 col-10">
+           <label  class="col-3 col-sm-2 text-end m-2">Nombre</label>
+	        <input  class="col-6 col-sm-2" th:value="${vacuna.nombre}" name="nombre">
+    </div>
+        
+        
+         	
+	        
+        <button class="col-2 boton">Editar</button>
 </form>
+</div>
 </body>
 </html>

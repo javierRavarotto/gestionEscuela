@@ -1,10 +1,7 @@
 package com.gestionEscuela.entidades;
-
-
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -66,17 +63,18 @@ public class NumeroCurricula {
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
-	public Set<Materias>  getMaterias() {
+	public Set<Materias> getMateria() {
 		return materia;
 	}
-	public void setMaterias(Set<Materias>  materias) {
-		this.materia = materias;
+	public void setMateria(Set<Materias> materia) {
+		this.materia = materia;
 	}
 	@Override
 	public String toString() {
 		return "NumeroCurricula [idCurricula=" + idCurricula + ", nombre=" + nombre + ", alta=" + alta
-				+ ", fechaCreacion=" + fechaCreacion + ", fechaEdit=" + fechaEdit + ", materias=" + materia + "]";
+				+ ", fechaCreacion=" + fechaCreacion + ", fechaEdit=" + fechaEdit + ", materia=" + materia + "]";
 	}
+
 	
 	
 

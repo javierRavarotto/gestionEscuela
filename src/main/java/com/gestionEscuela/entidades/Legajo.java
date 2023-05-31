@@ -1,23 +1,14 @@
 package com.gestionEscuela.entidades;
-
 import java.util.Date;
-
-//----------------------------------------
-	// ANOTACIONES
-
-//Falta el ONE to ONE con el Alumnos
-
-	// Cierro ANOTACIONES
-//----------------------------------------
-
-
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Legajo {
@@ -34,8 +25,12 @@ public class Legajo {
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
-	 @OneToMany(mappedBy = "idVacuna")
-	 private List<Vacunas> vacunas;
+	@ManyToMany	
+	private Set<Vacunas> vacunas;
+
+	
+	
+	
 	
 	public Integer getIdLegajo() {
 		return idLegajo;
@@ -85,18 +80,16 @@ public class Legajo {
 	public void setAnotaciones(String anotaciones) {
 	this.anotaciones = anotaciones;
 	}
-	
-
 	public Boolean getPartidaNacimiento() {
 		return partidaNacimiento;
 	}
 	public void setPartidaNacimiento(Boolean partidaNacimiento) {
 		this.partidaNacimiento = partidaNacimiento;
 	}
-	public List<Vacunas> getVacunas() {
+	public Set<Vacunas> getVacunas() {
 		return vacunas;
 	}
-	public void setVacunas(List<Vacunas> vacunas) {
+	public void setVacunas(Set<Vacunas> vacunas) {
 		this.vacunas = vacunas;
 	}
 	
@@ -122,9 +115,10 @@ public class Legajo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Legajo(Integer idLegajo, Boolean partidaNacimiento, Boolean fotocopiaDNI, Boolean tituloSecundario,
 			String descripcionTitulo, Boolean cooperadora, String descripcionCooperadora, String anotaciones,
-			Boolean alta, Date fechaCreacion, Date fechaEdit, List<Vacunas> vacunas) {
+			Boolean alta, Date fechaCreacion, Date fechaEdit, Set<Vacunas> vacunas, Alumnos alumno) {
 		super();
 		this.idLegajo = idLegajo;
 		this.partidaNacimiento = partidaNacimiento;
@@ -138,6 +132,18 @@ public class Legajo {
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
 		this.vacunas = vacunas;
+	
+	}
+	@Override
+	public String toString() {
+		return "Legajo [idLegajo=" + idLegajo + ", partidaNacimiento=" + partidaNacimiento + ", fotocopiaDNI="
+				+ fotocopiaDNI + ", tituloSecundario=" + tituloSecundario + ", descripcionTitulo=" + descripcionTitulo
+				+ ", cooperadora=" + cooperadora + ", descripcionCooperadora=" + descripcionCooperadora
+				+ ", anotaciones=" + anotaciones + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion
+				+ ", fechaEdit=" + fechaEdit + ", vacunas=" + vacunas + ", alumno="  + "]";
 	}
 	
-}
+	
+	}
+	
+

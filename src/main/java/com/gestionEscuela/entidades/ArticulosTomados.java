@@ -1,18 +1,13 @@
 package com.gestionEscuela.entidades;
-
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-
-//cuando se moto el articulo
-
 @Entity
 public class ArticulosTomados {
 	@Id
@@ -23,8 +18,6 @@ public class ArticulosTomados {
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
-	
-	
 	
 	public ArticulosTomados(Integer idArticuloTomado, List<Articulos> articulo, Boolean alta, Date fechaCreacion,
 			Date fechaEdit) {
@@ -53,6 +46,7 @@ public class ArticulosTomados {
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
+
 	public Integer getIdArticuloTomado() {
 		return idArticuloTomado;
 	}
@@ -66,5 +60,6 @@ public class ArticulosTomados {
 		this.articulo = articulo;
 	}
 	
+
 
 }

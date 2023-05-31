@@ -1,16 +1,12 @@
 package com.gestionEscuela.servicios;
-
 import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.gestionEscuela.entidades.Materias;
 import com.gestionEscuela.entidades.NumeroCurricula;
 import com.gestionEscuela.entidades.Vacunas;
 import com.gestionEscuela.repositorios.MateriasRepositorio;
-
 import errorServicio.ErrorServicio;
 
 @Service
@@ -18,6 +14,7 @@ public class MateriasServicios {
 	
 	@Autowired
 	private MateriasRepositorio materiasRepositorio;
+
 
 	public Materias buscarId(Integer id) {
 		Materias materia = materiasRepositorio.findById(id).get();
@@ -28,7 +25,6 @@ public class MateriasServicios {
 	public Materias crearMateria(String nombre , String formato, Integer cantidadHoras, String modalidadCursaro) throws ErrorServicio {
 		try {
 			Materias materia = new Materias();
-			materia.setIdMateria(0);
 			materia.setNombreMateria(nombre);
 			materia.setAlta(true);
 			materia.setFechaCreacion(new Date());
@@ -39,11 +35,9 @@ public class MateriasServicios {
 			materia.setModalidadCursado(modalidadCursaro);
 			return materiasRepositorio.save(materia);
 		} catch (Exception e) {
-			 
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}
-	
 	public Boolean  mostrarAlta(Boolean altas)throws ErrorServicio {
 		if(altas==false) {
 			altas=true;
@@ -67,7 +61,6 @@ public class MateriasServicios {
 		}
 		materiasRepositorio.save(materias);	
 	}
-	
 	@Transactional
 	public void editarMateria(Integer id ,String nombre,String formato, Integer cantidadHoras,String modalidadCursaro) throws ErrorServicio {
 		try {
@@ -76,12 +69,15 @@ public class MateriasServicios {
 			materia.setFormato(formato);
 			materia.setCantidadHoras(cantidadHoras);
 			materia.setModalidadCursado(modalidadCursaro);
+			materia.setFormato(nombre);
+			materia.setRegularidad(nombre);
+			materia.setCantidadHoras(0);
+			materia.setModalidadCursado(nombre);
 			materiasRepositorio.save(materia);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
 	}
-
 	@Transactional
 	public void deleteMateria(Integer id) throws ErrorServicio {
 		

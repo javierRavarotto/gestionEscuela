@@ -1,5 +1,6 @@
 package com.gestionEscuela.controladores;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -79,12 +80,11 @@ public class articulosControlador {
 	}
 	
 	@PostMapping("editar/articulo")
-	public RedirectView editarArticuloMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id,@RequestParam String descripcion) 
+	public RedirectView editarArticuloMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id, String descripcion) 
 			throws ErrorServicio {
 
 		RedirectView rv = new RedirectView();
 		try {
-	
 			articulosServicio.editarArticulo(nombre,id,descripcion);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -120,7 +120,6 @@ public class articulosControlador {
 	
 		RedirectView rv = new RedirectView();
 		try {
-			 System.out.println(id);
 			articulosServicio.deleteArticulo(id);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
@@ -131,5 +130,6 @@ public class articulosControlador {
 		rv.setUrl("/articulos/lista");
 		return rv;
 	}
-
 }
+
+

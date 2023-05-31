@@ -5,11 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/../../css/index.css}">
+    <link rel="stylesheet" th:href="@{../css/generales.css}">
     <div th:replace="nav/nav.html :: css">
     </div>
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
-    <h1>andansdo</h1>
+
+    <div class="contenedor justify-content-center row ">
+        <div class="col-2 text-center card">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/profesor.png}" alt="">
+        </div>
+            <b class="col-12 ">Profesores</b>
+            <a class="col-12 boton"  th:href ="@{/profesor/lista}" >Ir</a>
+        </div>
+            <div class="col-2 text-center card ">
+        <div class="col-12 text-center">
+         	<img class="col-6  mt-2" th:src="@{/../iconos/alumno.png}" alt="">
+        </div>
+            <b class="col-12 ">Alumnos</b>
+            <a class="col-12 boton"  th:href ="@{/alumnos/lista}" >Ir</a>
+        </div>
+            <div class="col-2 text-center card ">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/materias.png}" alt="">
+        </div>
+            <b class="col-12 ">Materias</b>
+            <a class="col-12 boton"  th:href ="@{/materias/lista}" >Ir</a>
+        </div>
+            <div class="col-2 text-center card">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/vacuna.png}" alt="">
+        </div>
+            <b class="col-12 ">Vacunas</b>
+            <a class="col-12 boton" th:href ="@{/vacunas/lista}" >Ir</a>
+        </div>
+            <div class="col-2 text-center card">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/articulo.png}" alt="">
+        </div>
+            <b class="col-12 ">Articulos</b>
+            <a class="col-12 boton" th:href ="@{/articulos/lista}" >Ir</a>
+        </div>
+            <div class="col-2 text-center card ">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/legajo.png}" alt="">
+        </div>
+            <b class="col-12 ">Legajo</b>
+            <a class="col-12 boton" th:href ="@{/legajos/lista}" >Ir</a>
+        </div>
+          <div class="col-2 text-center card">
+        <div class="col-12 text-center">
+         	<img class="col-6 mt-2" th:src="@{/../iconos/curricula.png}" alt="">
+        </div>
+            <b class="col-12 ">Numero Curricula</b>
+            <a class="col-12 boton" th:href ="@{/numeroCurricula/lista}" >Ir</a>
+        </div>
+   
+        
+        
+        
+         
+         
+    </div>
 </body>
 </html>

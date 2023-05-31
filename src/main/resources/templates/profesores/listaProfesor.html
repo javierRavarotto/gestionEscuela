@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="nav/nav.html :: css"></div>
+    <title>Document</title>
+    <link  rel="stylesheet" th:href="@{../css/vacunasLista.css}">
+       <link rel="stylesheet" th:href="@{../css/generales.css}">
+</head>
+<header th:replace="nav/nav.html :: nav"> </header>
+<body>
+	<div class="row text-center  mt-2 mb-2 justify-content-center">
+	     <a class="m-3 boton col-2" href="./agregar">Agregar Profedor</a> 
+		 <a  class="altaBaja m-3  col-1 boton" th:href="mostrarAlta" action="mostrarAlta" method="POST">alta</a>
+		 <a class="altaBaja m-3  col-1 boton" th:href="mostrarBaja" action="mostrarBaja" method="POST">baja</a>
+	</div>
+<table class="table table-dark">
+  <thead>
+    <tr>
+   
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">DNI</th>
+      <th scope="col">Datos</th>
+      <th  th:if="${!altas}" scope="col">Alta</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Borrar</th>
+    </tr>
+  </thead>
+  <tbody th:if="${altas}">
+    <tr  th:each = "profesor : ${profesores}" th:if="${profesor.alta}" >
+      <th  th:value="${profesor.idProfesor}" th:text="${profesor.idProfesor}" scope="row" name="id" hidden></th>
+      <td  th:text="${profesor.nombre}"></td>
+       <td  th:text="${profesor.apellido}"></td>
+         <td  th:text="${profesor.dni}"></td>
+     	 <td > <a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></td>
+        <td><a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></a></td>
+     	<form  action="altaBaja" method="POST">	
+		    <input class="fechaCampo" th:value="${profesor.idProfesor}" hidden name="id" />
+		    <td><button class="buttonCruz"> </button></td>
+	    </form>
+    </tr>
+  </tbody>
+
+  <tbody th:if="${!altas}">
+    <tr  th:each = "profesor : ${profesores}" th:if="${!profesor.alta}" >
+
+      <th  th:value="${profesor.idProfesor}" th:text="${profesor.idProfesor}" scope="row" name="id" hidden></th>
+      <td  th:text="${profesor.nombre}"></td>
+       <td  th:text="${profesor.apellido}"></td>
+         <td  th:text="${profesor.dni}"></td>
+          <td > <a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></td>
+  
+     <form  action="altaBaja" method="POST">	
+		    <input class="fechaCampo" th:value="${profesor.idProfesor}" hidden name="id" />
+		    <td><button class="buttonCheck"> </button></td>
+	    </form>
+      <td><a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></a></td>
+    
+     
+	    
+	    <td><a class="buttonBorrar" th:href="@{delete/}+${profesor.idProfesor}"></a></td>
+    </tr>
+  </tbody>
+
+
+</table>
+		
+</body>
+</html>

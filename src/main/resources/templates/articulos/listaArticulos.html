@@ -7,13 +7,15 @@
     <div th:replace="nav/nav.html :: css"></div>
     <title>Document</title>
     <link  rel="stylesheet" th:href="@{../css/vacunasLista.css}">
+    <link rel="stylesheet" th:href="@{../css/generales.css}">
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
-     <button><a href="./agregar">Agregar Articulo</a> </button>
-	 <a  class="altaBaja" th:href="mostrarAlta" action="mostrarAlta" method="POST">alta</a>
-	 <a class="altaBaja" th:href="mostrarBaja" action="mostrarBaja" method="POST">baja</a>
-	
+     <div class="row text-center  mt-2 mb-2 justify-content-center">
+	     <a class="m-3 boton col-2" href="./agregar">Agregar Articulo</a> 
+		 <a  class="altaBaja m-3  col-1 boton" th:href="mostrarAlta" action="mostrarAlta" method="POST">alta</a>
+		 <a class="altaBaja m-3  col-1 boton" th:href="mostrarBaja" action="mostrarBaja" method="POST">baja</a>
+	</div>
 <table class="table table-dark">
   <thead>
     <tr>
