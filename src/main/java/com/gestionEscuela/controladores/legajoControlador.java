@@ -93,6 +93,7 @@ public class legajoControlador {
 		if(legajoServicio.buscarId(idNumber) != null) {
 			Legajo legajo = legajoServicio.buscarId(idNumber);
 			model.addAttribute("legajo",legajo);
+			
 		}
 
 		model.addAttribute("vacunas",vacunas);
@@ -113,7 +114,8 @@ public class legajoControlador {
 			rv.setUrl("redirect:/legajos/lista");
 			return rv;
 		}
-		rv.setUrl("/legajos/lista");
+		
+		rv.setUrl("/alumnos/editar/" + id);
 		return rv;
 	}
 	@PostMapping("/altaBaja")

@@ -82,7 +82,7 @@ public class alumnoControlador {
 		if(legajoServicio.buscarUltima() != null) {
 			Legajo legajo = legajoServicio.buscarUltima();
 			Integer IdLegajo= legajo.getIdLegajo() +1;
-			alumnoServicio.agregarLegajoAlumno(id, IdLegajo);
+			//alumnoServicio.agregarLegajoAlumno(id, IdLegajo);
 		}
 	
 		
@@ -98,7 +98,6 @@ public class alumnoControlador {
 
 		RedirectView rv = new RedirectView();
 		try {
-	
 			alumnoServicio.editarAlumno( id, nombre , apellido,  dni,telefono,domicilio,   email, observacion);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());

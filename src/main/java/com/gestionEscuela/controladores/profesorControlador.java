@@ -80,7 +80,6 @@ public class profesorControlador {
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
 			modelo.addAttribute("nombre", nombre);
-			System.out.print(posesion);
 			rv.setUrl("redirect:/profesor/lista");
 			return rv;
 		}
@@ -110,14 +109,17 @@ public class profesorControlador {
 	public RedirectView editarVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id,@RequestParam String apellido,@RequestParam Integer dni,@RequestParam String domicilio,@RequestParam Integer telefono,@RequestParam String email, String posesion,@RequestParam Integer horasCatedras,@RequestParam String observacion) 
 			throws ErrorServicio, ParseException {
 		RedirectView rv = new RedirectView();
-		try { 
+		System.out.print(posesion);
+		try {
 			profesorServicio.editarProfesor(id,nombre,apellido,  dni,  domicilio,  telefono,email,posesion, horasCatedras,observacion);
 		} catch (ErrorServicio e) {
+			
 			modelo.addAttribute("error", e.getMessage());
 			modelo.addAttribute("nombre", nombre);
 			rv.setUrl("redirect:/profesor/lista");
 			return rv;
 		}
+		
 		rv.setUrl("/profesor/lista");
 		return rv;
 	}

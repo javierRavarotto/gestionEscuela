@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gestionEscuela.entidades.Alumnos;
 import com.gestionEscuela.entidades.Legajo;
 import com.gestionEscuela.repositorios.AlumnoRepositorio;
+import com.gestionEscuela.repositorios.LegajoRepositorio;
 
 import errorServicio.ErrorServicio;
 
@@ -18,6 +19,9 @@ public class AlumnoServicio {
 	
 	@Autowired
 	AlumnoRepositorio alumnoRepositorio;
+	
+	@Autowired
+	LegajoRepositorio legajoRepositorio;
 	
 	@Autowired
 	MateriasServicios materiaServicio;
@@ -36,6 +40,7 @@ public class AlumnoServicio {
 			String domicilio,  String email,String observaciones) throws ErrorServicio {
 		try {
 			Alumnos alumno = new Alumnos();
+			Legajo legajo = new Legajo();
 			alumno.setNombre(nombre);
 			alumno.setApellido(apellido);
 			alumno.setDni(dni);
@@ -45,6 +50,8 @@ public class AlumnoServicio {
 			alumno.setObservaciones(observaciones);
 			alumno.setAlta(true);
 			alumno.setFechaCreacion(new Date()); 
+			alumno.setLegajo(legajo);
+			legajoRepositorio.save(legajo);
 			alumnoRepositorio.save(alumno);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
@@ -54,6 +61,8 @@ public class AlumnoServicio {
 	public void editarAlumno(Integer id,String nombre ,String apellido, Integer dni,  Integer telefono,
 			String domicilio,  String email,String observaciones) throws ErrorServicio {
 		try {
+			
+			
 			Alumnos alumno = buscarId(id);
 			alumno.setNombre(nombre);
 			alumno.setApellido(apellido);
@@ -61,8 +70,12 @@ public class AlumnoServicio {
 			alumno.setTelefono(telefono);
 			alumno.setDomicilio(domicilio);
 			alumno.setEmail(email);
-			alumno.setObservaciones(observaciones);
 			alumno.setFechaEdit(new Date());
+			if(observaciones == "") {
+				
+			}else {
+				alumno.setObservaciones(observaciones);}
+			
 			alumnoRepositorio.save(alumno);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
@@ -102,13 +115,12 @@ public class AlumnoServicio {
 		}
 	}
 	
-	@Transactional
-	public void agregarLegajoAlumno(Integer id,Integer idLegajo)throws ErrorServicio {
-		Alumnos alumno = buscarId(id);
-		Legajo legajo = legajoServicio.buscarUltima();
-		System.out.print(legajo);
-		alumno.setLegajo(legajo);
-		
-		alumnoRepositorio.save(alumno);	
-	}
+	//@Transactional
+	//public void agregarLegajoAlumno(Integer id,Integer idLegajo)throws ErrorServicio {
+		//Alumnos alumno = buscarId(id);
+		//Legajo legajo = legajoServicio.buscarUltima();
+		//System.out.print(legajo);
+		//alumno.setLegajo(legajo);
+		//alumnoRepositorio.save(alumno);	
+	//}
 }
