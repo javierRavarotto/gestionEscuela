@@ -40,7 +40,7 @@ public class NumeroCurriculaServicios {
 	}
 	
 	@Transactional
-	public void crearNumeroCurricula(String nombre) throws ErrorServicio {
+	public NumeroCurricula crearNumeroCurricula(String nombre) throws ErrorServicio {
 		try {
 			NumeroCurricula curricula = new NumeroCurricula();
 			curricula.setNombre(nombre);
@@ -48,9 +48,11 @@ public class NumeroCurriculaServicios {
 			curricula.setFechaCreacion(new Date()); 
 			
 			numeroCurriculaRepositorio.save(curricula);
+			return curricula;
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
+		
 	}
 	
 	

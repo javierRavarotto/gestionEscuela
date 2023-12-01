@@ -46,8 +46,10 @@
            </div>
            <div class="m-2 col-10">
            <label class="col-3 col-sm-2 text-end m-2">Observacion</label>
-	        <textarea class="col-6 col-sm-2" th:text="${alumno.observaciones}" name="observacion"></textarea>
-           </div>
+           <!--ver el tema del placeholder -->
+	       
+			<textarea class="col-6 col-sm-2" th:value="${alumno.observaciones}" th:placeholder="${alumno.observaciones}" name="observacion"></textarea>
+	          </div>
         <button class="col-2 boton">Editar</button>
         <button class="col-2 boton"><a  th:href="@{../../legajos/agregar/}+${alumno.idAlumno}">Agregar legajo</a> </button>
         <button class="col-2 boton"><a  th:href="@{../../legajos/editar/}+${alumno.idAlumno}">Editar legajo</a> </button>

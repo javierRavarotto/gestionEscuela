@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.gestionEscuela.entidades.Materias;
-import com.gestionEscuela.entidades.Vacunas;
 import com.gestionEscuela.repositorios.MateriasRepositorio;
 import com.gestionEscuela.servicios.MateriasServicios;
 import com.gestionEscuela.servicios.NumeroCurriculaServicios;
@@ -51,6 +52,16 @@ public class materiasControlado {
 	public ModelAndView lista(ModelMap model) {
 		ModelAndView mav = new ModelAndView("materias/listaMaterias");
 		model.put("altas",altas);
+		String mensaje="";
+		model.addAttribute("error",mensaje);
+		return mav;
+	}
+	@GetMapping("/listaError")
+	public ModelAndView listaError(ModelMap model) {
+		ModelAndView mav = new ModelAndView("materias/listaMaterias");
+		model.put("altas",altas);
+		String mensaje="La materia se encuentra en una curricula";
+		model.addAttribute("error",mensaje);
 		return mav;
 	}
 	@GetMapping("/agregar")
@@ -96,7 +107,6 @@ public class materiasControlado {
 	public String mostrarAlta(ModelMap modelo) throws ErrorServicio {
 
 		altas=materiasServicio.mostrarAlta(this.altas);
-		 System.out.println(altas);
 		return "redirect:/materias/lista";
 	}
 	
@@ -104,7 +114,6 @@ public class materiasControlado {
 	public String mostrarBaja(ModelMap modelo) throws ErrorServicio {
 
 		altas=materiasServicio.mostrarBaja(this.altas);
-		 System.out.println(altas);
 		return "redirect:/materias/lista";
 	}
 	@PostMapping("/altaBaja")
@@ -141,18 +150,16 @@ public class materiasControlado {
 
 	@GetMapping("delete/{id}")
 	public RedirectView deleteMateriasMetodoPost(Model modelo, HttpSession httpSession ,@PathVariable("id")Integer id ) 
-			throws ErrorServicio {
+			throws DataIntegrityViolationException,ErrorServicio,ConstraintViolationException{
 		RedirectView rv = new RedirectView();
 		try {
-			
 			materiasServicio.deleteMateria(id);
-		} catch (ErrorServicio e) {
-			modelo.addAttribute("error", e.getMessage());
-			
-			rv.setUrl("redirect:/");
-			return rv;
+			rv.setUrl("/materias/lista");
+		} catch (DataIntegrityViolationException e) {
+
+			rv.setUrl("/materias/listaError");
 		}
-		rv.setUrl("/materias/lista");
+		
 		return rv;
 	}
 	

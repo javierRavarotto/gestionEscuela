@@ -50,24 +50,40 @@ public class ProfesorServicios {
 	public void editarProfesor(Integer id, String nombre , String apellido, Integer dni, String domicilio, Integer telefono, String email,String posesion, Integer horasCatedras, String observacion) throws ErrorServicio {
 		try {
 			Profesores profesor = buscarPorId(id);
-			Date posesionDate;
-			if(posesion==""){
-				posesionDate= profesor.getTomaposesion();
+			
+			
+			if(posesion != "") {
+				SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
+				Date posesionDate;
+				posesionDate= formato.parse(posesion);
+				System.out.print(posesion+  "uno ");
+				profesor.setNombre(nombre);
+				profesor.setApellido(apellido);
+				profesor.setDni(dni);
+				profesor.setDomicilio(domicilio);
+				profesor.setTelefono(telefono);
+				profesor.setEmail(email);
+				profesor.setTomaposesion(posesionDate);
+				profesor.setHorascatedrastotales(horasCatedras);
+				profesor.setObservaciones(observacion);
+				profesor.setFechaEdit(new Date());
+				profesorRepositorio.save(profesor);
 			}else {
-			SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
-			posesionDate= formato.parse(posesion);
-			profesor.setNombre(nombre);
-			profesor.setApellido(apellido);
-			profesor.setDni(dni);
-			profesor.setDomicilio(domicilio);
-			profesor.setTelefono(telefono);
-			profesor.setEmail(email);
-			profesor.setTomaposesion(posesionDate);
-			profesor.setHorascatedrastotales(horasCatedras);
-			profesor.setObservaciones(observacion);
-			profesor.setFechaEdit(new Date());
-			profesorRepositorio.save(profesor);
+				System.out.print(posesion + " dos");
+				profesor.setNombre(nombre);
+				profesor.setApellido(apellido);
+				profesor.setDni(dni);
+				profesor.setDomicilio(domicilio);
+				profesor.setTelefono(telefono);
+				profesor.setEmail(email);
+				profesor.setHorascatedrastotales(horasCatedras);
+				profesor.setObservaciones(observacion);
+				profesor.setFechaEdit(new Date());
+				profesorRepositorio.save(profesor);
 			}
+				
+				
+			
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}

@@ -70,14 +70,17 @@ public class numeroCurriculaControlador {
 
 		RedirectView rv = new RedirectView();
 		try {
-			numeroCurriculaServicio.crearNumeroCurricula(nombre);
+			NumeroCurricula numeroCurricula =  numeroCurriculaServicio.crearNumeroCurricula(nombre);
+			rv.setUrl("/numeroCurricula/editar/" + numeroCurricula.getIdCurricula());
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
 			modelo.addAttribute("nombre", nombre);
 			rv.setUrl("redirect:/numeroCurricula/agregarMaterias");
 			return rv;
 		}
-		rv.setUrl("/numeroCurricula/agregarMaterias");
+	
+	
+		
 		return rv;
 	}
 	

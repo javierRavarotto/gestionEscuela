@@ -1,12 +1,18 @@
 package com.gestionEscuela.servicios;
+import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Date;
+
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ServerErrorException;
+
 import com.gestionEscuela.entidades.Materias;
-import com.gestionEscuela.entidades.NumeroCurricula;
-import com.gestionEscuela.entidades.Vacunas;
 import com.gestionEscuela.repositorios.MateriasRepositorio;
+
 import errorServicio.ErrorServicio;
 
 @Service
@@ -79,18 +85,12 @@ public class MateriasServicios {
 		}
 	}
 	@Transactional
-	public void deleteMateria(Integer id) throws ErrorServicio {
-		
+	public void deleteMateria(Integer id) throws DataIntegrityViolationException,ErrorServicio,ConstraintViolationException{
 		try {
 			Materias materia = buscarId(id);
-			
-			
-			materiasRepositorio.delete(materia);
-			
-		} catch (Exception e) {
-			 System.out.println(id + "system");
-			 System.out.println(id + "estea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decsestea esta entrandoa ca vos que decs");
-			throw new ErrorServicio("Todos los campos son obligatorios");
+			materiasRepositorio.delete(materia);	
+		} catch (DataIntegrityViolationException e) {
+ 
 		}
 	}
 }

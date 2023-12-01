@@ -43,7 +43,8 @@
   		    
   		    <div class="m-2 col-10">
          <label  class="col-3 col-sm-2 text-end m-2">Toma posesion</label>
-        <input class="col-6 col-sm-2"  type="date" th:value="${profesor.tomaposesion}" name="posesion">
+       
+          <input class="col-6 col-sm-2" type="date" name="posesion">
   		    </div>
   		     	<div class="m-2 col-10">
          <label  class="col-3 col-sm-2 text-end m-2">Horas catedras totales</label>
@@ -54,7 +55,7 @@
         <textarea class="col-6 col-sm-2"  type="text" th:value="${profesor.observaciones}" name="observacion"></textarea>
   		    </div>
         <button  class="col-2 boton">Editar</button>
-        <button  class="col-2 boton"><a  th:href="@{../../legajos/agregar/}+${profesor.idProfesor}">Agregar legajo</a> </button>
+       
 </form>
  </div>
 </body>
