@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.gestionEscuela.entidades.Articulos;
 import com.gestionEscuela.entidades.Profesores;
+import com.gestionEscuela.repositorios.ArticulosRepositorio;
 import com.gestionEscuela.repositorios.ProfesorRepositorio;
 import com.gestionEscuela.servicios.ProfesorServicios;
 
@@ -34,9 +36,11 @@ public class profesorControlador {
 	
 	@Autowired
 	ProfesorServicios profesorServicio;
-	
+	 
 	@Autowired
 	ProfesorRepositorio profesorRepositorio;
+	@Autowired
+	ArticulosRepositorio articulosRepositorio;
 	
 	@GetMapping("/lista")
 	public ModelAndView lista(ModelMap model) {
@@ -55,8 +59,10 @@ public class profesorControlador {
 	public ModelAndView editar(@PathVariable String id,ModelMap model) {
 		ModelAndView mav = new ModelAndView("profesores/editarProfesor");
 		int idNumber = Integer.parseInt(id);
+		List<Articulos> articulos = articulosRepositorio.findAll();
 		Profesores profesor = profesorServicio.buscarPorId(idNumber);
 		model.addAttribute("profesor",profesor);
+		model.addAttribute("articulos",articulos);
 		return mav;
 	}
 	
@@ -138,5 +144,34 @@ public class profesorControlador {
 		rv.setUrl("/profesor/lista");
 		return rv;
 	}
+	@PostMapping("editar/agregarArticuloTomado")
+	public RedirectView agregarArticuloTomado(Model modelo,@RequestParam  Integer idArticulo ,@RequestParam  Integer idProfesor) 
+			throws ErrorServicio {
+		RedirectView rv = new RedirectView();
+		try {
+		
+			profesorServicio.agregarArticuloTomado(idArticulo,idProfesor);
+		} catch (ErrorServicio e) {
+			modelo.addAttribute("error", e.getMessage());
+			rv.setUrl("redirect:/profesor/editar/" + idProfesor);
+			return rv;
+		}
+		rv.setUrl("/profesor/editar/" + idProfesor);
+		return rv;
+	}
+	
+	@PostMapping("editar/eliminarArticuloTomado")
+	public RedirectView eliminarArticuloTomado(Model modelo,@RequestParam Integer idArticulo ,@RequestParam  Integer idProfesor) 
+			throws ErrorServicio {
+		RedirectView rv = new RedirectView();
+		try {
+			profesorServicio.eliminarArticuloTomado(idArticulo,idProfesor);
+		} catch (ErrorServicio e) {
+			modelo.addAttribute("error", e.getMessage());
+			rv.setUrl("redirect:/profesor/editar/"+ idProfesor);
+			return rv;
+		}
+		rv.setUrl("/profesor/editar/"+ idProfesor);
+		return rv;}
 
 }

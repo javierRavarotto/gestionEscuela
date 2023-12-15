@@ -70,15 +70,12 @@ public class MateriasServicios {
 	@Transactional
 	public void editarMateria(Integer id ,String nombre,String formato, Integer cantidadHoras,String modalidadCursaro) throws ErrorServicio {
 		try {
+			System.out.print(cantidadHoras);
 			Materias materia = buscarId(id);
 			materia.setNombreMateria(nombre);
 			materia.setFormato(formato);
 			materia.setCantidadHoras(cantidadHoras);
 			materia.setModalidadCursado(modalidadCursaro);
-			materia.setFormato(nombre);
-			materia.setRegularidad(nombre);
-			materia.setCantidadHoras(0);
-			materia.setModalidadCursado(nombre);
 			materiasRepositorio.save(materia);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");

@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gestionEscuela.entidades.Articulos;
+import com.gestionEscuela.entidades.Legajo;
 import com.gestionEscuela.entidades.Profesores;
+import com.gestionEscuela.entidades.Vacunas;
 import com.gestionEscuela.repositorios.ProfesorRepositorio;
 
 import errorServicio.ErrorServicio;
@@ -17,6 +20,8 @@ public class ProfesorServicios {
 	
 	@Autowired
 	private ProfesorRepositorio profesorRepositorio;
+	@Autowired
+	ArticulosServicios articuloServicios;
 	
 	public Profesores buscarPorId(Integer id) {
 		Profesores profesor = profesorRepositorio.findById(id).get();
@@ -120,4 +125,28 @@ public class ProfesorServicios {
 		}
 		return altas;
 		}
+	
+	@Transactional
+	public void agregarArticuloTomado(Integer idArticulo , Integer idProfesor) throws ErrorServicio {
+		try {
+			Profesores profesor = buscarPorId(idProfesor);
+			Articulos articulo = articuloServicios.buscarPorId(idArticulo);
+			profesor.getArticulos().add(articulo);
+			System.out.print("acaestamos");
+			 profesorRepositorio.save(profesor);
+		} catch (Exception e) {
+			throw new ErrorServicio("Todos los campos son obligatorios");
+		}
+	}
+	@Transactional
+	public void eliminarArticuloTomado(Integer idArticulo , Integer idProfesor) throws ErrorServicio {
+		try {
+			Profesores profesor = buscarPorId(idProfesor);
+			Articulos articulo = articuloServicios.buscarPorId(idArticulo);
+			profesor.getArticulos().remove(articulo);
+			 profesorRepositorio.save(profesor);
+		} catch (Exception e) {
+			throw new ErrorServicio("Todos los campos son obligatorios");
+		}
+	}
 }

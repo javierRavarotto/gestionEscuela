@@ -136,6 +136,7 @@ public class materiasControlado {
 			throws ErrorServicio {
 		RedirectView rv = new RedirectView();
 		try {
+		
 			materiasServicio.editarMateria(id,nombre,formato,cantidadHoras,modalidadCursaro);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());

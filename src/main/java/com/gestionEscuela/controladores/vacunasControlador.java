@@ -59,7 +59,7 @@ public class vacunasControlador {
 	@ModelAttribute
 	public void addAttributes(Model modelo) {
 		List<Vacunas> listaVacunas = vacunasRepositorio.findAll();
-		System.out.print(listaVacunas);
+		
 		modelo.addAttribute("vacunas", listaVacunas);
 	}
 	
@@ -122,7 +122,6 @@ public class vacunasControlador {
 			vacunasServicio.deleteVacuna(id);
 		} catch (ErrorServicio e) {
 			modelo.addAttribute("error", e.getMessage());
-			
 			rv.setUrl("redirect:/");
 			return rv;
 		}
