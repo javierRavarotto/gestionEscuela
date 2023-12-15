@@ -2,11 +2,13 @@ package com.gestionEscuela.entidades;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,29 +33,30 @@ public class Profesores {
 
 	private Date fechaCreacion;
 	private Date fechaEdit;
+	@ManyToMany	
+	private Set<Articulos> articulos;
 	public Profesores() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio,
-			Integer telefono, String email, Date tomaposesion, Integer horascatedrastotales, String observaciones,
-			List<Materias> materias, Boolean alta, Date fechaCreacion, Date fechaEdit) {
-		super();
-		this.idProfesor = idProfesor;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
-		this.domicilio = domicilio;
-		this.telefono = telefono;
-		this.email = email;
-		this.tomaposesion = tomaposesion;
-		this.horascatedrastotales = horascatedrastotales;
-		this.observaciones = observaciones;
-		this.materias = materias;
-		this.alta = alta;
-		this.fechaCreacion = fechaCreacion;
-		this.fechaEdit = fechaEdit;
+	
+	@Override
+	public String toString() {
+		return "Profesores [idProfesor=" + idProfesor + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
+				+ ", domicilio=" + domicilio + ", telefono=" + telefono + ", email=" + email + ", tomaposesion="
+				+ tomaposesion + ", horascatedrastotales=" + horascatedrastotales + ", observaciones=" + observaciones
+				+ ", materias=" + materias + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion + ", fechaEdit="
+				+ fechaEdit + ", articulos=" + articulos + "]";
 	}
+
+	public Set<Articulos> getArticulos() {
+		return articulos;
+	}
+
+	public void setArticulos(Set<Articulos> articulos) {
+		this.articulos = articulos;
+	}
+
 	public Integer getIdProfesor() {
 		return idProfesor;
 	}
