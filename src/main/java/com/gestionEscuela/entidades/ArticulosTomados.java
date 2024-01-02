@@ -1,32 +1,37 @@
 package com.gestionEscuela.entidades;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
-import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 @Entity
 public class ArticulosTomados {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idArticuloTomado;
-	@OneToMany(mappedBy = "articulosTomados")
+	@ManyToMany
 	private List<Articulos> articulo;
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
 	
-	public ArticulosTomados(Integer idArticuloTomado, List<Articulos> articulo, Boolean alta, Date fechaCreacion,
-			Date fechaEdit) {
+	
+	public ArticulosTomados(Integer idArticuloTomado, List<Articulos> articulo, Boolean alta,
+			Date fechaCreacion, Date fechaEdit) {
 		super();
 		this.idArticuloTomado = idArticuloTomado;
 		this.articulo = articulo;
 		this.alta = alta;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaEdit = fechaEdit;
+	}
+	public ArticulosTomados() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public Boolean getAlta() {
 		return alta;
@@ -58,6 +63,11 @@ public class ArticulosTomados {
 	}
 	public void setArticulo(List<Articulos> articulo) {
 		this.articulo = articulo;
+	}
+	@Override
+	public String toString() {
+		return "ArticulosTomados [idArticuloTomado=" + idArticuloTomado + ", articulo=" + articulo + ", alta=" + alta
+				+ ", fechaCreacion=" + fechaCreacion + ", fechaEdit=" + fechaEdit + "]";
 	}
 	
 

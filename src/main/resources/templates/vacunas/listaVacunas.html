@@ -20,7 +20,6 @@
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Fecha</th>
       <th scope="col">Editar</th>
@@ -30,7 +29,7 @@
   </thead>
   <tbody th:if="${altas}">
     <tr  th:each = "vacuna : ${vacunas}" th:if="${vacuna.alta}" >
-      <th  th:value="${vacuna.idVacuna}" th:text="${vacuna.idVacuna}" scope="row" name="id"></th>
+      <th  th:value="${vacuna.idVacuna}" th:if="false" th:text="${vacuna.idVacuna}" scope="row" name="id"></th>
       <td  th:text="${vacuna.nombre}"></td>
       <td  th:text="${#dates.format(vacuna.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
         <td><a class="buttonEdit" th:href="@{editar/}+${vacuna.idVacuna}"></a></td>
@@ -43,7 +42,7 @@
 
   <tbody th:if="${!altas}">
     <tr  th:each = "vacuna : ${vacunas}" th:if="${!vacuna.alta}" >
-      <th  th:value="${vacuna.idVacuna}" th:text="${vacuna.idVacuna}" scope="row" name="id"></th>
+      <th  th:value="${vacuna.idVacuna}"th:if="false" th:text="${vacuna.idVacuna}" scope="row" name="id"></th>
       <td  th:text="${vacuna.nombre}"></td>
       <td  th:text="${#dates.format(vacuna.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
       <td><a class="buttonEdit" th:href="@{editar/}+${vacuna.idVacuna}"></a></td>

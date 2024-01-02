@@ -23,7 +23,6 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">DNI</th>
-      <th scope="col">Datos</th>
       <th  th:if="${!altas}" scope="col">Alta</th>
       <th scope="col">Editar</th>
       <th scope="col">Borrar</th>
@@ -35,7 +34,6 @@
       <td  th:text="${profesor.nombre}"></td>
        <td  th:text="${profesor.apellido}"></td>
          <td  th:text="${profesor.dni}"></td>
-     	 <td > <a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></td>
         <td><a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></a></td>
      	<form  action="altaBaja" method="POST">	
 		    <input class="fechaCampo" th:value="${profesor.idProfesor}" hidden name="id" />
@@ -43,30 +41,20 @@
 	    </form>
     </tr>
   </tbody>
-
   <tbody th:if="${!altas}">
     <tr  th:each = "profesor : ${profesores}" th:if="${!profesor.alta}" >
-
       <th  th:value="${profesor.idProfesor}" th:text="${profesor.idProfesor}" scope="row" name="id" hidden></th>
       <td  th:text="${profesor.nombre}"></td>
        <td  th:text="${profesor.apellido}"></td>
          <td  th:text="${profesor.dni}"></td>
-          <td > <a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></td>
-  
      <form  action="altaBaja" method="POST">	
 		    <input class="fechaCampo" th:value="${profesor.idProfesor}" hidden name="id" />
 		    <td><button class="buttonCheck"> </button></td>
 	    </form>
       <td><a class="buttonEdit" th:href="@{editar/}+${profesor.idProfesor}"></a></td>
-    
-     
-	    
 	    <td><a class="buttonBorrar" th:href="@{delete/}+${profesor.idProfesor}"></a></td>
     </tr>
   </tbody>
-
-
-</table>
-		
+</table>	
 </body>
 </html>

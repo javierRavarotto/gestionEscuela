@@ -19,7 +19,6 @@
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Fecha</th>
       <th scope="col">Editar</th>
@@ -29,7 +28,7 @@
   </thead>
   <tbody th:if="${altas}"> 
     <tr  th:each = "articulo : ${articulos}" th:if="${articulo.alta}" >
-      <th  th:value="${articulo.idArticulo}" th:text="${articulo.idArticulo}" scope="row" name="id"></th>
+      <th  th:value="${articulo.idArticulo}" th:if="false" th:text="${articulo.idArticulo}" scope="row" name="id"></th>
       <td  th:text="${articulo.nombre}"></td>
       <td  th:text="${#dates.format(articulo.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
         <td><a class="buttonEdit" th:href="@{editar/}+${articulo.idArticulo}"></a></td>
@@ -42,7 +41,7 @@
 
   <tbody th:if="${!altas}">
     <tr  th:each = "articulo : ${articulos}" th:if="${!articulo.alta}" >
-    <th  th:value="${articulo.idArticulo}" th:text="${articulo.idArticulo}" scope="row" name="id"></th>
+    <th  th:value="${articulo.idArticulo}" th:if="false" th:text="${articulo.idArticulo}" scope="row" name="id"></th>
       <td  th:text="${articulo.nombre}"></td>
       <td  th:text="${#dates.format(articulo.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
         <td><a class="buttonEdit" th:href="@{editar/}+${articulo.idArticulo}"></a></td>

@@ -10,12 +10,10 @@
 </head>
 <header th:replace="nav/nav.html :: nav"> </header>
 <body>
-
  <div class="row justify-content-center">
          <form action="profesor" method="post"  class="col-12 text-center">
           <h5>Editar Profesor</h5>
          	<input th:value="${profesor.idProfesor}" hidden name="id">
-         	
          	<div class="m-2 col-10">
         <label class="col-3 col-sm-2 text-end m-2">Nombre</label>
         <input class="col-6 col-sm-2" type="text" th:value="${profesor.nombre}"  name="nombre">
@@ -40,10 +38,8 @@
          <label  class="col-3 col-sm-2 text-end m-2">Email</label>
         <input class="col-6 col-sm-2"  type="text" th:value="${profesor.email}" name="email">
   		    </div>
-  		    
   		    <div class="m-2 col-10">
          <label  class="col-3 col-sm-2 text-end m-2">Toma posesion</label>
-       
           <input class="col-6 col-sm-2" type="date" name="posesion">
   		    </div>
   		     	<div class="m-2 col-10">
@@ -52,13 +48,11 @@
   		    </div>
   		     	<div class="m-2 col-10">
         <label  class="col-3 col-sm-2 text-end m-2">Observaciones</label>
-        <textarea class="col-6 col-sm-2"  type="text" th:value="${profesor.observaciones}" name="observacion"></textarea>
-  		    </div>
-        <button  class="col-2 boton">Editar</button>
-       
+        <label class="col-3 col-sm-2 text-end m-2" th:value="${profesor.horascatedrastotales}"></label>
+           </div>
+        <button  class="col-2 boton">Editar</button>  
 </form>
  </div>
- 
  <table class="table table-dark">
   <thead>
     <tr>
@@ -78,24 +72,25 @@
     </tr>
   </tbody>
 </table>
- 
  <table class="table table-dark">
   <thead>
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Agregar</th>
+	  <th scope="col">Cantidad</th>
+
     </tr>
   </thead>
   <tbody>
-    <tr  th:each = "articulo : ${profesor.articulos}" th:if="${articulo.alta}" >
+    <tr  th:each = "articulo : ${borrar}" th:if="${articulo.alta}" >
       <th  th:value="${articulo.nombre}" th:text="${articulo.nombre}" scope="row" name="id"></th>
-      
      	<form  action="eliminarArticuloTomado" method="POST">	
      		<input class="fechaCampo" th:value="${articulo.idArticulo}" hidden name="idArticulo" />
 		    <input class="fechaCampo" th:value="${profesor.idProfesor}" hidden name="idProfesor" />
 		    <td><button class="buttonCruz"> </button></td>
 	    </form>
-    </tr>
+	    <th  th:value="${articulo.cantidad}" th:text="${articulo.cantidad}" scope="row" name="cantidad"></th>
+    </tr> 
   </tbody>
 </table>
 </body>

@@ -2,15 +2,19 @@
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gestionEscuela.entidades.Articulos;
-import com.gestionEscuela.entidades.Legajo;
+import com.gestionEscuela.entidades.ArticulosTomados;
 import com.gestionEscuela.entidades.Profesores;
-import com.gestionEscuela.entidades.Vacunas;
+import com.gestionEscuela.repositorios.ArticulosRepositorio;
+import com.gestionEscuela.repositorios.ArticulosTomadosRepositorio;
 import com.gestionEscuela.repositorios.ProfesorRepositorio;
 
 import errorServicio.ErrorServicio;
@@ -20,6 +24,10 @@ public class ProfesorServicios {
 	
 	@Autowired
 	private ProfesorRepositorio profesorRepositorio;
+	@Autowired
+	ArticulosTomadosRepositorio articulosTomadosRepositorio;
+	@Autowired
+	ArticulosRepositorio articuloRepositorio;
 	@Autowired
 	ArticulosServicios articuloServicios;
 	
@@ -31,6 +39,7 @@ public class ProfesorServicios {
 	public void crearProfesor( String nombre, String apellido, Integer dni, String domicilio, Integer telefono, String email,Date posesionDate, Integer horasCatedras, String observacion) throws ErrorServicio {
 		try {
 			Profesores profesor = new Profesores();
+			ArticulosTomados articulosTomados = new ArticulosTomados();
 			profesor.setNombre(nombre);
 			profesor.setApellido(apellido);
 			profesor.setDni(dni);
@@ -44,6 +53,11 @@ public class ProfesorServicios {
 			profesor.setFechaCreacion(new Date());
 			profesor.setFechaEdit(new Date());
 			
+			articulosTomados.setAlta(true);
+			articulosTomados.setFechaCreacion(new Date());
+			articulosTomados.setFechaEdit(new Date());
+			profesor.setArticulos(articulosTomados);
+			articulosTomadosRepositorio.save(articulosTomados);
 			profesorRepositorio.save(profesor);
 		} catch (Exception e) {
 			
@@ -131,9 +145,12 @@ public class ProfesorServicios {
 		try {
 			Profesores profesor = buscarPorId(idProfesor);
 			Articulos articulo = articuloServicios.buscarPorId(idArticulo);
-			profesor.getArticulos().add(articulo);
-			System.out.print("acaestamos");
-			 profesorRepositorio.save(profesor);
+			ArticulosTomados articuloTomado= articulosTomadosRepositorio.findById(profesor.getArticulos().getIdArticuloTomado()).get();
+			articuloTomado.getArticulo().add(articulo);
+		
+			articulosTomadosRepositorio.save(articuloTomado); 
+			articuloRepositorio.save(articulo); 
+			System.out.print( articuloTomado.getArticulo());
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
@@ -143,10 +160,38 @@ public class ProfesorServicios {
 		try {
 			Profesores profesor = buscarPorId(idProfesor);
 			Articulos articulo = articuloServicios.buscarPorId(idArticulo);
-			profesor.getArticulos().remove(articulo);
+			ArticulosTomados articuloTomado= articulosTomadosRepositorio.findById(profesor.getArticulos().getIdArticuloTomado()).get();
+			
+			articuloTomado.getArticulo().remove(articulo);
 			 profesorRepositorio.save(profesor);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");
 		}
+	}
+	
+	@Transactional
+	public Set<Articulos> contadorArticlosToamdos(Integer idProfesor) throws ErrorServicio {
+		try {
+			Profesores profesor = buscarPorId(idProfesor);
+			ArticulosTomados articuloTomado= articulosTomadosRepositorio.findById(profesor.getArticulos().getIdArticuloTomado()).get();
+			
+			Integer id=0;
+			List<Articulos> articulos = articuloTomado.getArticulo();
+			Set<Articulos> setArticulos = new HashSet<>(Set.of());
+			for (Articulos articulo : articulos) {
+				if(id!=articulo.getIdArticulo()) {
+					 id=articulo.getIdArticulo();
+					articulo.setCantidad(0);
+				};
+				articulo.setCantidad(articulo.getCantidad()+1);
+			}
+			setArticulos.addAll(articulos);
+			articulosTomadosRepositorio.save(articuloTomado);
+			 profesorRepositorio.save(profesor);
+			 return setArticulos;
+		} catch (Exception e) {
+			throw new ErrorServicio("Todos los campos son obligatorios");
+		}
+		
 	}
 }

@@ -27,6 +27,7 @@ public class ArticulosServicios {
 			articulo.setDescripcion(descripcion);
 			articulo.setAlta(true);
 			articulo.setFechaCreacion(new Date()); 
+			articulo.setCantidad(0);
 			articulosRepositorio.save(articulo);
 		} catch (Exception e) {
 			throw new ErrorServicio("Todos los campos son obligatorios");

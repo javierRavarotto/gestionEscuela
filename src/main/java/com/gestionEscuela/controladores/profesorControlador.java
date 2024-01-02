@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,37 +43,37 @@ public class profesorControlador {
 	@Autowired
 	ArticulosRepositorio articulosRepositorio;
 	
+	@ModelAttribute
+	public void addAttributes(Model modelo) {
+		List<Profesores> listaProfesores = profesorRepositorio.findAll();
+		modelo.addAttribute("profesores", listaProfesores);
+	}
 	@GetMapping("/lista")
 	public ModelAndView lista(ModelMap model) {
 		ModelAndView mav = new ModelAndView("profesores/listaProfesor");
 		model.put("altas",altas);
 		return mav;
 	}
-	
-	
 	@GetMapping("/agregar")
 	public ModelAndView agregar(ModelMap model) {
 		ModelAndView mav = new ModelAndView("profesores/agregarProfesor");
 		return mav;
 	}
 	@GetMapping("/editar/{id}")
-	public ModelAndView editar(@PathVariable String id,ModelMap model) {
+	public ModelAndView editar(@PathVariable String id,ModelMap model) throws ErrorServicio {
 		ModelAndView mav = new ModelAndView("profesores/editarProfesor");
 		int idNumber = Integer.parseInt(id);
 		List<Articulos> articulos = articulosRepositorio.findAll();
 		Profesores profesor = profesorServicio.buscarPorId(idNumber);
+		Set<Articulos> setArticulos=profesorServicio.contadorArticlosToamdos(idNumber);
+		
+		
+		
 		model.addAttribute("profesor",profesor);
+		model.addAttribute("borrar",setArticulos);
 		model.addAttribute("articulos",articulos);
 		return mav;
 	}
-	
-	
-	@ModelAttribute
-	public void addAttributes(Model modelo) {
-		List<Profesores> listaProfesores = profesorRepositorio.findAll();
-		modelo.addAttribute("profesores", listaProfesores);
-	}
-	
 	@PostMapping("/crearProfesor")
 	public RedirectView crearProfesorMetodoPost(Model modelo, HttpSession httpSession,@RequestParam String nombre,@RequestParam String apellido,@RequestParam Integer dni,@RequestParam String domicilio,@RequestParam Integer telefono,@RequestParam String email,@RequestParam String posesion,@RequestParam Integer horasCatedras,@RequestParam String observacion) 
 			throws ErrorServicio, ParseException {
@@ -115,7 +116,6 @@ public class profesorControlador {
 	public RedirectView editarVacunaMetodoPost(Model modelo, HttpSession httpSession, @RequestParam String nombre ,@RequestParam Integer id,@RequestParam String apellido,@RequestParam Integer dni,@RequestParam String domicilio,@RequestParam Integer telefono,@RequestParam String email, String posesion,@RequestParam Integer horasCatedras,@RequestParam String observacion) 
 			throws ErrorServicio, ParseException {
 		RedirectView rv = new RedirectView();
-		System.out.print(posesion);
 		try {
 			profesorServicio.editarProfesor(id,nombre,apellido,  dni,  domicilio,  telefono,email,posesion, horasCatedras,observacion);
 		} catch (ErrorServicio e) {

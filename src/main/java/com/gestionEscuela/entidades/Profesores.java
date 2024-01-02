@@ -8,10 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profesores {
@@ -30,33 +28,34 @@ public class Profesores {
     @OneToMany(mappedBy = "idMateria")
     private List<Materias> materias;
 	private Boolean alta;
-
 	private Date fechaCreacion;
 	private Date fechaEdit;
-	@ManyToMany	
-	private Set<Articulos> articulos;
+	@OneToOne	
+	private ArticulosTomados articulos;
 	public Profesores() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override
-	public String toString() {
-		return "Profesores [idProfesor=" + idProfesor + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", domicilio=" + domicilio + ", telefono=" + telefono + ", email=" + email + ", tomaposesion="
-				+ tomaposesion + ", horascatedrastotales=" + horascatedrastotales + ", observaciones=" + observaciones
-				+ ", materias=" + materias + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion + ", fechaEdit="
-				+ fechaEdit + ", articulos=" + articulos + "]";
-	}
-
-	public Set<Articulos> getArticulos() {
-		return articulos;
-	}
-
-	public void setArticulos(Set<Articulos> articulos) {
+	public Profesores(Integer idProfesor, String nombre, String apellido, Integer dni, String domicilio,
+			Integer telefono, String email, Date tomaposesion, Integer horascatedrastotales, String observaciones,
+			List<Materias> materias, Boolean alta, Date fechaCreacion, Date fechaEdit, ArticulosTomados articulos) {
+		super();
+		this.idProfesor = idProfesor;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.domicilio = domicilio;
+		this.telefono = telefono;
+		this.email = email;
+		this.tomaposesion = tomaposesion;
+		this.horascatedrastotales = horascatedrastotales;
+		this.observaciones = observaciones;
+		this.materias = materias;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
 		this.articulos = articulos;
 	}
-
 	public Integer getIdProfesor() {
 		return idProfesor;
 	}
@@ -141,6 +140,22 @@ public class Profesores {
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
+	public ArticulosTomados getArticulos() {
+		return articulos;
+	}
+	public void setArticulos(ArticulosTomados articulos) {
+		this.articulos = articulos;
+	}
+	@Override
+	public String toString() {
+		return "Profesores [idProfesor=" + idProfesor + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
+				+ ", domicilio=" + domicilio + ", telefono=" + telefono + ", email=" + email + ", tomaposesion="
+				+ tomaposesion + ", horascatedrastotales=" + horascatedrastotales + ", observaciones=" + observaciones
+				+ ", materias=" + materias + ", alta=" + alta + ", fechaCreacion=" + fechaCreacion + ", fechaEdit="
+				+ fechaEdit + ", articulos=" + articulos + "]";
+	}
+	
+	
   
 	
 	

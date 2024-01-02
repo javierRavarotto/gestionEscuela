@@ -19,9 +19,23 @@ public class Articulos {
 	private Boolean alta;
 	private Date fechaCreacion;
 	private Date fechaEdit;
-	@ManyToOne
-	private ArticulosTomados articulosTomados;
-
+	private Integer cantidad;
+	public Articulos() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Articulos(Integer idArticulo, String nombre, String descripcion, Boolean alta, Date fechaCreacion,
+			Date fechaEdit, Integer cantidad) {
+		super();
+		this.idArticulo = idArticulo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.alta = alta;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaEdit = fechaEdit;
+		this.cantidad = cantidad;
+		
+	}
 	public Integer getIdArticulo() {
 		return idArticulo;
 	}
@@ -52,35 +66,26 @@ public class Articulos {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	public ArticulosTomados getArticulosTomados() {
-		return articulosTomados;
-	}
-	public void setArticulosTomados(ArticulosTomados articulosTomados) {
-		this.articulosTomados = articulosTomados;
-	}
-
-
 	public Date getFechaEdit() {
 		return fechaEdit;
 	}
 	public void setFechaEdit(Date fechaEdit) {
 		this.fechaEdit = fechaEdit;
 	}
+	public Integer getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
 	
-	public Articulos(Integer idArticulo, String nombre, String descripcion, Boolean alta, Date fechaCreacion,
-			Date fechaEdit, ArticulosTomados articulosTomados) {
-		super();
-		this.idArticulo = idArticulo;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.alta = alta;
-		this.fechaCreacion = fechaCreacion;
-		this.fechaEdit = fechaEdit;
-		this.articulosTomados = articulosTomados;
+	@Override
+	public String toString() {
+		return "Articulos [idArticulo=" + idArticulo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", alta="
+				+ alta + ", fechaCreacion=" + fechaCreacion + ", fechaEdit=" + fechaEdit + ", cantidad=" + cantidad
+				+ ", articulosTomados=" + "]";
 	}
-	public Articulos() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+	
 
 }

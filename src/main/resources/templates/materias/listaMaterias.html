@@ -21,7 +21,6 @@
   <table class="table table-dark">
     <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Fecha</th>
         <th scope="col">Editar</th>
@@ -31,7 +30,7 @@
     </thead>
      <tbody th:if="${altas}">
       <tr th:each="materia : ${materias}" th:if="${materia.alta}">
-        <th th:value="${materia.idMateria}" th:text="${materia.idMateria}" scope="row" name="id"></th>
+        <th th:value="${materia.idMateria}" th:if="false" "${materia.idMateria}" scope="row" name="id"></th>
         <td th:text="${materia.nombreMateria}"></td>
         <td th:text="${#dates.format(materia.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
         <td><a class="buttonEdit" th:href="@{editar/}+${materia.idMateria}"></a></td>
@@ -44,7 +43,7 @@
       </tbody>
       <tbody th:if="${!altas}">
         <tr th:each="materia : ${materias}" th:if="${!materia.alta}">
-          <th th:value="${materia.idMateria}" th:text="${materia.idMateria}" scope="row" name="id"></th>
+          <th th:value="${materia.idMateria}" th:if="false" th:text="${materia.idMateria}" scope="row" name="id"></th>
           <td th:text="${materia.nombreMateria}"></td>
           <td th:text="${#dates.format(materia.fechaCreacion, 'dd/MM/yy h:mm a')}"></td>
           <td><a class="buttonEdit" th:href="@{editar/}+${materia.idMateria}"></a></td>
